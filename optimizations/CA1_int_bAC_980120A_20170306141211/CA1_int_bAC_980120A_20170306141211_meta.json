@@ -1,0 +1,16 @@
+{
+"brain_structure": "Hippocampus",
+"cell_soma_location": "CA1",
+"cell_type": "interneuron",
+"e-type": "bAC",
+"fitting_name": "bACnoljp",
+"channels": "kdr, na3, km, kap, hd, can, cal, cat, kd, cagk, cacum, KahpM95",
+"morphology": "980120A",
+"max_ngen": 60,
+"offspring_size": 128,
+"description": "",
+"contributors": "Rosanna Migliore",
+"email": "rosanna.migliore@cnr.it",
+"affiliations": "CNR",
+"species": "Rat"
+}
