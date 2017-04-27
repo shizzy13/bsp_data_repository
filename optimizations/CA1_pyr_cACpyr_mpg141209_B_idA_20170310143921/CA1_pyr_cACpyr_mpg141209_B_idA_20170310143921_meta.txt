@@ -1,7 +1,7 @@
 brain_structure: Hippocampus
 cell_soma_location: CA1
 cell_type: pyramidal
-e-type: cAC
+e-type: cACpyr
 fitting_name: CA1_PC_cACnoljp
 channels: kdr, nax,  km, kap, hd, can, cal, cat, kca, cagk, cacum, kad 
 morphology: mpg141209_B_idA
