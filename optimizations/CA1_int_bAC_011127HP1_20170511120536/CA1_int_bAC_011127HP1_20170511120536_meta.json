@@ -8,6 +8,8 @@
 "morphology": "011127HP1",
 "max_ngen": 60,
 "offspring_size": 128,
+"best_run": "seed9.pkl",
+"best_cell": "cell.hoc",
 "description": "",
 "contributors": "Rosanna Migliore",
 "email": "rosanna.migliore@cnr.it",
