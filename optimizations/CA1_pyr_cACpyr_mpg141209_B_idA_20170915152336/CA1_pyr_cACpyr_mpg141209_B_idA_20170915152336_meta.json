@@ -3,7 +3,7 @@
 "cell_soma_location": "CA1",
 "cell_type": "pyramidal",
 "e-type": "cACpyr",
-"fitting_name": "CA1_PC_cACnoljp",
+"fitting_name": "CA1_PC_cAC_sig",
 "channels": "kdr, nax,  kmb, kap, hd, can, cal, cat, kca, cagk, cacum, kad",
 "morphology": "mpg141209_B_idA",
 "max_ngen": 60,
