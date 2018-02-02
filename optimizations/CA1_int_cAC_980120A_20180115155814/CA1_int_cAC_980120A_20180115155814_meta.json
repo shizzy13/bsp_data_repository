@@ -4,7 +4,7 @@
 "cell_type": "interneuron",
 "e-type": "cAC",
 "fitting_name": "INT_cAC_noljp",
-"channels": "kdr, nax, kmb, kap, hd, can, cal, cat, kdb, cagk, cacum, kca",
+"channels": "kdr, nax, kmb, kap, hd, can, cal, cat, kdb, cagk, cacumb, kca",
 "morphology": "980120A",
 "max_ngen": 60,
 "offspring_size": 128,
