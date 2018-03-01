@@ -9,7 +9,7 @@
 "max_ngen": 60,
 "offspring_size": 128,
 "best_run": "seed4.pkl",
-"best_cell": "cell_seed7_0.hoc",
+"best_cell": "cell_seed4_0.hoc",
 "description": "",
 "contributors": "Rosanna Migliore",
 "email": "rosanna.migliore@cnr.it",
