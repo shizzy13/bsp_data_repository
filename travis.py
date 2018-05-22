@@ -25,7 +25,7 @@ for item in opt_folder:
                 if '"}' in line:
                     flag=False
 
-            print ''.join(data)"""
+            print ''.join(data)
             
 
 
