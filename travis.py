@@ -18,14 +18,14 @@ for folder in os.listdir(optimizations):
                         zipfile.ZipFile.extractall(os.path.join(optimizations, folder))
                 
      
-                config = os.path.join(optimizations, folder, folder, "config\morph.json")
-#                print config
+                morph = os.path.join(optimizations, folder, folder, "config\morph.json")
+                print morph
      
-"""#Attempt to read .json file     
-        with open(config) as json_data:      
+#Attempt to read .json file     
+        with open(morph) as json_data:      
                 d = json.load(json_data)
                 print(d)
-"""
+
 
 
 
