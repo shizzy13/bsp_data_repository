@@ -1,4 +1,4 @@
-import os, sys, re, json
+import os, sys, re, json, zipfile
 
 #Open folder in Optimization
 repository = os.path.dirname(os.path.abspath(__file__))
@@ -19,8 +19,8 @@ for folder in os.listdir(optimizations):
         for files in os.listdir(os.path.join(optimizations, folder)):
             if files.endswith('.zip'):
                 print "inside"
-                os.chdir(os.path.join(optimizations, folder))
-                zip_ref = zipfile.ZipFile(folder, 'r')
+                os.chdir(os.path.join(optimizations, files))
+                zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
                 os.chdir(os.path,join('..','..'))
