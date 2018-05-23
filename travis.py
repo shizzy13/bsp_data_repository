@@ -14,7 +14,9 @@ for folder in os.listdir(optimizations):
 #        print curr_folder
         extension = ".zip"
         if folder.endswith(extension):
+            os.chdir(os.path.join(optimizations, folder))
             zipfile.ZipFile.extractall(curr_folder)
+            os.chdir(os.path,join('..','..'))
         print os.listdir(os.path.join(optimizations, folder))
            
 #Attempt to read .json file
