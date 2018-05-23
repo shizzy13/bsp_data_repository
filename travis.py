@@ -19,11 +19,11 @@ for folder in os.listdir(optimizations):
         for files in os.listdir(os.path.join(optimizations, folder)):
             if files.endswith('.zip'):
                 print "insidee"
-                os.chdir(os.path.join(optimizations, files))
+                os.chdir(os.path.join(optimizations, folder))
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path,join('..','..'))
+                os.chdir(os.path.join('..','..'))
             print os.getcwd()
             print os.listdir(os.path.join(optimizations, folder))
            
