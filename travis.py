@@ -14,10 +14,10 @@ for folder in os.listdir(optimizations):
         print curr_folder
         print os.listdir(os.path.join(optimizations, folder))
         print os.getcwd()
-        print "out"
+        print "outside"
         print folder
         if folder.endswith('.zip'):
-            print "in"
+            print "inside"
             os.chdir(os.path.join(optimizations, folder))
             zip_ref = zipfile.ZipFile(folder, 'r')
             zip_ref.extractall('.')
