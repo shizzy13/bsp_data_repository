@@ -14,10 +14,10 @@ outside
 CA1_int_bAC_011017HP2_20180110153901
 C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-inside
+insidee
 
 Traceback (most recent call last):
-  File "C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\travis.py", line 23, in <module>
-    zip_ref = zipfile.ZipFile(folder, 'r')
-NameError: name 'zipfile' is not defined
+  File "C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\travis.py", line 22, in <module>
+    os.chdir(os.path.join(optimizations, files))
+WindowsError: [Error 2] Impossibile trovare il file specificato: 'C:\\Users\\neli\\Desktop\\TESTYAML\\bsp_data_repository\\optimizations\\CA1_int_bAC_011017HP2_20180110153901.zip'
 >>> 

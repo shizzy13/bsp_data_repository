@@ -18,7 +18,7 @@ for folder in os.listdir(optimizations):
         print folder
         for files in os.listdir(os.path.join(optimizations, folder)):
             if files.endswith('.zip'):
-                print "inside"
+                print "insidee"
                 os.chdir(os.path.join(optimizations, files))
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
