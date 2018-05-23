@@ -14,7 +14,7 @@ for folder in os.listdir(optimizations):
         print curr_folder
         print os.listdir(os.path.join(optimizations, folder))
         print os.getcwd()
-        print "Hello"
+        print "out"
         print folder
         if folder.endswith('.zip'):
             print "in"
