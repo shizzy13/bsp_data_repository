@@ -36,7 +36,7 @@ for folder in os.listdir(optimizations):
     with open("morph.json") as json_file:
         json_data = json.load(json_file)
     print(json_data)
-    os.chdir(os.path,join('..','..'))
+    os.chdir(os.path.join('..','..'))
     print os.getcwd()
 
 
