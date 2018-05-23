@@ -11,10 +11,10 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (re.match('CA1', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-#        print curr_folder
+        print curr_folder
         extension = ".zip"
-#        print os.listdir(os.path.join(optimizations, folder))
-#        print os.getcwd()
+        print os.listdir(os.path.join(optimizations, folder))
+        print os.getcwd()
         if folder.endswith(extension):
             os.chdir(os.path.join(optimizations, folder))
             zip_ref = zipfile.ZipFile(folder, 'r')
