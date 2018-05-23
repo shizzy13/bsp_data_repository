@@ -16,15 +16,16 @@ for folder in os.listdir(optimizations):
         print os.getcwd()
         print "outside"
         print folder
-        if folder.endswith('.zip'):
-            print "inside"
-            os.chdir(os.path.join(optimizations, folder))
-            zip_ref = zipfile.ZipFile(folder, 'r')
-            zip_ref.extractall('.')
-            zip_ref.close() 
-            os.chdir(os.path,join('..','..'))
-        print os.getcwd()
-        print os.listdir(os.path.join(optimizations, folder))
+        for files in os.listdir(os.path.join(optimizations, folder)):
+            if files.endswith('.zip'):
+                print "inside"
+                os.chdir(os.path.join(optimizations, folder))
+                zip_ref = zipfile.ZipFile(folder, 'r')
+                zip_ref.extractall('.')
+                zip_ref.close() 
+                os.chdir(os.path,join('..','..'))
+            print os.getcwd()
+            print os.listdir(os.path.join(optimizations, folder))
            
 #Attempt to read .json file
 for folder in os.listdir(optimizations):
