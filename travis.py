@@ -4,27 +4,26 @@ import os, sys, re, json
 repository = os.path.dirname(os.path.abspath(__file__))
 optimizations = os.path.join(repository, "optimizations")
 
-print repository, "\n\n"
-print optimizations, "\n\n"
+#print "Print repository: \n", repository, "\n\n"
+#print "Print optimizations: \n", optimizations, "\n\n"
 
 #Attempt to extract files in same directory
 for folder in os.listdir(optimizations):
 
-        if (re.match('CA1', folder)): #Avoid README file
-                curr_folder = os.path.join(optimizations, folder)
-#                print folder
-                extension = ".zip"
-                if folder.endswith(extension):
-                        zipfile.ZipFile.extractall(os.path.join(optimizations, folder))
-                
-     
-                morph = os.path.join(optimizations, folder, folder, "config\morph.json")
-                print morph
-     
-#Attempt to read .json file     
-        with open(morph) as json_data:      
-                d = json.load(json_data)
-                print(d)
+    if (re.match('CA1', folder)): #Avoid README file
+        curr_folder = os.path.join(optimizations, folder)
+#        print curr_folder
+        extension = ".zip"
+        if folder.endswith(extension):
+            zipfile.ZipFile.extractall(curr_fodler)
+            print curr_fodler
+           
+#Attempt to read .json file
+            os.chdir(os.path.join(optimizations, folder, folder, "config"))
+            with open("morph.json") as json_file:
+               json_data = json.load(json_file)
+            print(json_data)
+
 
 
 
