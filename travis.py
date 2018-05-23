@@ -27,7 +27,9 @@ for folder in os.listdir(optimizations):
 #Attempt to read .json file
 for folder in os.listdir(optimizations):
     print os.getcwd()
-    os.chdir(os.path.join(optimizations, folder, folder, "config"))
+    os.chdir(os.path.join(optimizations, folder, folder))
+    print(os.listdir('.'))
+    os.chdir(os.path,join('..','..'))
     with open("morph.json") as json_file:
         json_data = json.load(json_file)
     print(json_data)
