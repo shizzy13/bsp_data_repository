@@ -18,7 +18,7 @@ for folder in os.listdir(optimizations):
         if folder.endswith(extension):
             os.chdir(os.path.join(optimizations, folder))
             zip_ref = zipfile.ZipFile(folder, 'r')
-            zip_ref.extractall()
+            zip_ref.extractall('.')
             zip_ref.close() 
             os.chdir(os.path,join('..','..'))
         print os.getcwd()
