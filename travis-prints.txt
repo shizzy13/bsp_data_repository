@@ -1,148 +1,235 @@
+´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶
+´´´´´´´´´´´´´´´´´´´´¶¶´´´´´´´´´´¶¶
+´´´´´´¶¶¶¶¶´´´´´´´¶¶´´´´´´´´´´´´´´¶¶
+´´´´´¶´´´´´¶´´´´¶¶´´´´´¶¶´´´´¶¶´´´´´¶¶
+´´´´´¶´´´´´¶´´´¶¶´´´´´´¶¶´´´´¶¶´´´´´´´¶¶
+´´´´´¶´´´´¶´´¶¶´´´´´´´´¶¶´´´´¶¶´´´´´´´´¶¶
+´´´´´´¶´´´¶´´´¶´´´´´´´´´´´´´´´´´´´´´´´´´¶¶
+´´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´´´´´´´´´´¶¶
+´´´¶´´´´´´´´´´´´¶´¶¶´´´´´´´´´´´´´¶¶´´´´´¶¶
+´´¶¶´´´´´´´´´´´´¶´´¶¶´´´´´´´´´´´´¶¶´´´´´¶¶
+´¶¶´´´¶¶¶¶¶¶¶¶¶¶¶´´´´¶¶´´´´´´´´¶¶´´´´´´´¶¶
+´¶´´´´´´´´´´´´´´´¶´´´´´¶¶¶¶¶¶¶´´´´´´´´´¶¶
+´¶¶´´´´´´´´´´´´´´¶´´´´´´´´´´´´´´´´´´´´¶¶
+´´¶´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´´´´´¶¶
+´´¶¶´´´´´´´´´´´¶´´¶¶´´´´´´´´´´´´´´´´¶¶
+´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´¶¶´´´´´´´´´´´´¶¶
+´´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶
+
+Prints for 4 folders in optimizations when string in .json and name of morphology file match
+
+*
+***
+*****
+***
+*
+
 === RESTART: C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\travis.py ===
 C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations
-##curr_folder## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 outside
-##folder## CA1_int_bAC_011017HP2_20180110153901
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#folder# CA1_int_bAC_011017HP2_20180110153901
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
 insidee
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
 ##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 ##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011017HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011017HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011017HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011017HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011017HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##curr_folder## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
+##(json_data[char])## 011017HP2.asc
+###(os.listdir('.'))### ['011017HP2.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+###file### <open file u'011017HP2.asc', mode 'r' at 0x0217FC80> 
+
+
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
 outside
-##folder## CA1_int_bAC_011023HP2_20180116154023
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#folder# CA1_int_bAC_011023HP2_20180116154023
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
 insidee
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
 ##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 ##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011023HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011023HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011023HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011023HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'bACnoljp': u'011023HP2.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##curr_folder## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
+##(json_data[char])## 011023HP2.asc
+###(os.listdir('.'))### ['011023HP2.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
+###file### <open file u'011023HP2.asc', mode 'r' at 0x0217F498> 
+
+
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
 outside
-##folder## CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#folder# CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
 insidee
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
 ##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 ##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idH.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idH.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idH.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idH.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idH.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##curr_folder## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+##(json_data[char])## oh140807_A0_idH.asc
+###(os.listdir('.'))### ['oh140807_A0_idH.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\morphology
+###file### <open file u'oh140807_A0_idH.asc', mode 'r' at 0x0217FCD8> 
+
+
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\morphology
 outside
-##folder## CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#folder# CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
 insidee
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##os.listdir(os.path.join(optimizations, folder))## ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
 ##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
 ##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idJ.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idJ.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idJ.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idJ.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data)## {u'CA1_PC_cAC_sig': u'oh140807_A0_idJ.asc'}
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
+##(json_data[char])## oh140807_A0_idJ.asc
+###(os.listdir('.'))### ['oh140807_A0_idJ.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621\morphology
+###file### <open file u'oh140807_A0_idJ.asc', mode 'r' at 0x0217FC80> 
+
+
 >>> 
+________¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶__________ 
+______¶¶¶¶¶¶_____________¶¶¶¶¶¶________ 
+_____¶¶¶¶¶_________________¶¶¶¶¶¶______ 
+____¶¶¶¶_____________________¶¶¶¶¶_____ 
+___¶¶¶¶_______________________¶¶¶¶¶____ 
+__¶¶¶¶_____¶¶¶¶_______¶¶¶¶______¶¶¶____ 
+__¶¶¶_____¶¶¶¶¶¶_____¶¶¶¶¶¶_____¶¶¶¶___ 
+_¶¶¶¶_____¶¶¶¶¶¶_____¶¶¶¶¶¶______¶¶¶___ 
+_¶¶¶_______¶¶¶¶_______¶¶¶¶_______¶¶¶¶__ 
+_¶¶¶______________________________¶¶¶__ 
+_¶¶¶______________________________¶¶¶__ 
+_¶¶¶______________________________¶¶¶__ 
+_¶¶¶____________¶¶¶¶¶____________¶¶¶¶__ 
+_¶¶¶¶________¶¶¶¶¶¶¶¶¶¶¶_________¶¶¶___ 
+__¶¶¶______¶¶¶¶¶_____¶¶¶¶¶______¶¶¶¶___ 
+__¶¶¶¶____¶¶¶___________¶¶¶____¶¶¶¶____ 
+___¶¶¶¶___¶¶_____________¶¶___¶¶¶¶_____ 
+____¶¶¶¶____________________¶¶¶¶¶______ 
+_____¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_______ 
+_______¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶_________ 
+
+
+Prints when string in .json and name of morphology file don't match for 3rd folder in optimizations
+
+*
+***
+*****
+***
+*
+
+C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+outside
+#folder# CA1_int_bAC_011017HP2_20180110153901
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+insidee
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
+##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
+##(json_data[char])## 011017HP2.asc
+###(os.listdir('.'))### ['011017HP2.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+###file### <open file u'011017HP2.asc', mode 'r' at 0x0201FC80> 
+
+
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+outside
+#folder# CA1_int_bAC_011023HP2_20180116154023
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+insidee
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
+##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
+##(json_data[char])## 011023HP2.asc
+###(os.listdir('.'))### ['011023HP2.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
+###file### <open file u'011023HP2.asc', mode 'r' at 0x0201F498> 
+
+
+#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
+outside
+#folder# CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\morphology
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+insidee
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
+##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
+##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
+##(json_data[char])## oh140807_A0_idH.asc
+###(os.listdir('.'))### ['oh140801_A0_idH.asc']
+###os.getcwd()### C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\morphology
+
+Traceback (most recent call last):
+  File "C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\travis.py", line 45, in <module>
+    with open(json_data[char]) as file:
+IOError: [Errno 2] No such file or directory: u'oh140807_A0_idH.asc'
+>>> 
+
+

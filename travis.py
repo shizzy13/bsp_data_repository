@@ -11,11 +11,11 @@ print optimizations
 for folder in os.listdir(optimizations):
     if (re.match('CA1', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        print "##curr_folder##", curr_folder
-        print "##os.listdir(os.path.join(optimizations, folder))##", os.listdir(os.path.join(optimizations, folder))
-        print "##os.getcwd()##", os.getcwd()
+        print "#curr_folder#", curr_folder
+        print "#os.listdir(os.path.join(optimizations, folder))#", os.listdir(os.path.join(optimizations, folder))
+        print "#os.getcwd()#", os.getcwd()
         print "outside"
-        print "##folder##", folder
+        print "#folder#", folder
         for files in os.listdir(os.path.join(optimizations, folder)):
             if files.endswith('.zip'):
                 print "insidee"
@@ -24,20 +24,33 @@ for folder in os.listdir(optimizations):
                 zip_ref.extractall('.')
                 zip_ref.close() 
                 os.chdir(os.path.join('..','..'))
-            print "##os.getcwd()##", os.getcwd()
-            print "##os.listdir(os.path.join(optimizations, folder))##", os.listdir(os.path.join(optimizations, folder))
+            print "#os.getcwd()#", os.getcwd()
+            print "#os.listdir(os.path.join(optimizations, folder))#", os.listdir(os.path.join(optimizations, folder))
            
 #Read .json file
         for files in os.listdir(os.path.join(optimizations, folder)):
-            print "##os.getcwd()##", os.getcwd()
-            os.chdir(os.path.join(optimizations, folder, folder, "config"))
-            print "##(os.listdir('.'))##",(os.listdir('.'))
-#            os.chdir(os.path.join('..','..'))
-            with open("morph.json") as json_file:
-                json_data = json.load(json_file)
-            print "##(json_data)##", (json_data)
-            os.chdir(os.path.join('..','..'))
-            print "##os.getcwd()##", os.getcwd()
+            if (files == folder):
+                print "##os.getcwd()##", os.getcwd()
+                os.chdir(os.path.join(optimizations, folder, folder, "config"))
+                print "##(os.listdir('.'))##",(os.listdir('.'))
+                with open("morph.json") as json_file:
+                    json_data = json.load(json_file)
+                for char in json_data:
+                    print "##(json_data[char])##", (json_data[char])
+                
+#Open file in morphology with name json_data[char]      
+                os.chdir(os.path.join(optimizations, folder, folder, "morphology"))
+                print "###(os.listdir('.'))###",(os.listdir('.'))
+                print "###os.getcwd()###", os.getcwd()
+                with open(json_data[char]) as file:
+                    print  "###file###", file, "\n\n"
+
+
+
+            
+            
+
+
 
 
 
