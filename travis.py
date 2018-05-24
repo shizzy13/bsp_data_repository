@@ -42,9 +42,14 @@ for folder in os.listdir(optimizations):
                     name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
                     print "name", name
                     if name[0] == json_data[char]:
-                        print "Match!\n\n"
+                        print "Check 1 success!"
                     else:
-                        print "Fail!\n\n"
+                        print "Check 1 fail!"
+                    if name.__len__() > 1:
+                        print "Check 2 fail!"
+                    else:
+                        print "Check 2 success!"
+                        
                 
                 
 
