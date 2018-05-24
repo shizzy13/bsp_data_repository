@@ -38,14 +38,15 @@ for folder in os.listdir(optimizations):
                 for char in json_data:
                     print "##(json_data[char])##", (json_data[char])
                 
-#Open file in morphology with name json_data[char]      
-                os.chdir(os.path.join(optimizations, folder, folder, "morphology"))
-                print "###(os.listdir('.'))###",(os.listdir('.'))
-                print "###os.getcwd()###", os.getcwd()
-                with open(json_data[char]) as file:
-                    print  "###file###", file, "\n\n"
-
-
+#Open file in morphology with name json_data[char]
+                    name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
+                    print "name", name
+                    if name[0] == json_data[char]:
+                        print "Match!\n\n"
+                    else:
+                        print "Fail!\n\n"
+                
+                
 
             
             
