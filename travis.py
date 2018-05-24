@@ -70,12 +70,14 @@ for folder in os.listdir(optimizations):
 
 #Checks
                 print "\n\n", folder
-                if name[0] == morph_data[char]:
-                    print "Check 1 success!"
-                else:
-                    print "Check 1 fail!"
-                if name.__len__() > 1:
+                for n in name:
+                    if n == morph_data[char]:
+                        print "Check 1 success!"
+                    else:
+                        print "Check 1 fail!"
+                if name.__len__() != 1:
                     print "Check 2 fail!"
+                    
                 else:
                     print "Check 2 success!"
                 check_three = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']

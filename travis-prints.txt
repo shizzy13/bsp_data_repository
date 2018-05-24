@@ -1,117 +1,28 @@
-´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶
-´´´´´´´´´´´´´´´´´´´´¶¶´´´´´´´´´´¶¶
-´´´´´´¶¶¶¶¶´´´´´´´¶¶´´´´´´´´´´´´´´¶¶
-´´´´´¶´´´´´¶´´´´¶¶´´´´´¶¶´´´´¶¶´´´´´¶¶
-´´´´´¶´´´´´¶´´´¶¶´´´´´´¶¶´´´´¶¶´´´´´´´¶¶
-´´´´´¶´´´´¶´´¶¶´´´´´´´´¶¶´´´´¶¶´´´´´´´´¶¶
-´´´´´´¶´´´¶´´´¶´´´´´´´´´´´´´´´´´´´´´´´´´¶¶
-´´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´´´´´´´´´´¶¶
-´´´¶´´´´´´´´´´´´¶´¶¶´´´´´´´´´´´´´¶¶´´´´´¶¶
-´´¶¶´´´´´´´´´´´´¶´´¶¶´´´´´´´´´´´´¶¶´´´´´¶¶
-´¶¶´´´¶¶¶¶¶¶¶¶¶¶¶´´´´¶¶´´´´´´´´¶¶´´´´´´´¶¶
-´¶´´´´´´´´´´´´´´´¶´´´´´¶¶¶¶¶¶¶´´´´´´´´´¶¶
-´¶¶´´´´´´´´´´´´´´¶´´´´´´´´´´´´´´´´´´´´¶¶
-´´¶´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´´´´´¶¶
-´´¶¶´´´´´´´´´´´¶´´¶¶´´´´´´´´´´´´´´´´¶¶
-´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´¶¶´´´´´´´´´´´´¶¶
-´´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶
 
-Prints for 4 folders in optimizations
--3rd folder has does not match .json string and morphology file name
-
-=== RESTART: C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\travis.py ===
-C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations
-#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-outside
-#folder# CA1_int_bAC_011017HP2_20180110153901
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-insidee
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011017HP2_morph.jpeg', 'CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011017HP2_20180110153901.zip', 'CA1_int_bAC_011017HP2_20180110153901_meta.json', 'CA1_int_bAC_011017HP2_20180110153901_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data[char])## 011017HP2.asc
-name ['011017HP2.asc']
-Match!
+CA1_int_bAC_011017HP2_20180110153901
+Check 1 fail!
+Check 2 success!
+Check 3 success!
+Check 4 success!
 
 
-#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\config
-outside
-#folder# CA1_int_bAC_011023HP2_20180116154023
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\config
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\config
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-insidee
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['011023HP2_morph.jpeg', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_int_bAC_011023HP2_20180116154023.zip', 'CA1_int_bAC_011023HP2_20180116154023_meta.json', 'CA1_int_bAC_011023HP2_20180116154023_responses.png']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data[char])## 011023HP2.asc
-name ['011023HP2.asc']
-Match!
+CA1_int_bAC_011023HP2_20180116154023
+Check 1 fail!
+Check 1 success!
+Check 2 fail!
+Check 3 success!
+Check 4 success!
 
 
-#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\config
-outside
-#folder# CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\config
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-insidee
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422.zip', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422_responses.png', 'oh140807_A0_idH_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data[char])## oh140807_A0_idH.asc
-name ['oh144301_A0_idH.asc']
-Fail!
+CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
+Check 1 success!
+Check 2 success!
+Check 3 fail!
+Check 4 success!
 
 
-#curr_folder# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\config
-outside
-#folder# CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422\config
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-insidee
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-#os.getcwd()# C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-#os.listdir(os.path.join(optimizations, folder))# ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621.zip', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_meta.json', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621_responses.png', 'oh140807_A0_idJ_morph.jpeg']
-##os.getcwd()## C:\Users\neli\Desktop\TESTYAML\bsp_data_repository
-##(os.listdir('.'))## ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-##(json_data[char])## oh140807_A0_idJ.asc
-name ['oh140807_A0_idJ.asc']
-Match!
-
-
->>> 
+CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
+Check 1 success!
+Check 2 success!
+Check 3 success!
+Check 4 fail!
