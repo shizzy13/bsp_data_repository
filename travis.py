@@ -42,38 +42,47 @@ for folder in os.listdir(optimizations):
 #Open file in morphology with name json_data[char]
                     name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
 #                    print "name", name
+                    
+#Check if file in morphology folder has the same name as the value in morph.json file in config
+                def check_one (same_name = 0):
+                    for n in name:
+                        if n == morph_data[char]:
+                            same_name += 1
+                    return same_name
+                
+#Check if only 1 file is present in morphology
+                def check_two (file_count = 1):
+                    if file_count == name.__len__():
+                        return file_count
 
+#Check if features.json, morph.json, parameters.json, protocols.json files are present in config
+                def check_three(check_three = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']):
+                    if check_three == config_list:
+                        return check_three
+
+#check if the same key is used in all files in config
                 def check_four(jjson):
                     with open(jjson) as json_file:
                         json_data = json.load(json_file)
                     for char in json_data:
-#                        print "##(json_data)##", (char)
-                        return char        
-
-#Checks
-                print "\n\n", folder
-                for n in name:
-                    if n == morph_data[char]:
-                        print "Check 1 success!"
+                        return char
+                  
+                def report(check, n):
+                    if check:
+                        print "Check", n, "success!"
                     else:
-                        print "Check 1 fail!"
-                        
-                if name.__len__() != 1:
-                    print "Check 2 fail!"
-                    
-                else:
-                    print "Check 2 success!"
-                    
-                check_three = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-                if config_list == check_three:
-                    print "Check 3 success!"
-                else:
-                    print "Check 3 fail!"
-                    
+                        print "Check", n , "fail!"
+             
+                print "\n\n", folder
+                report(check_one(), 1)
+                report(check_two(), 2)
+                report(check_three(), 3)
                 if check_four("morph.json") == check_four("features.json") == check_four("parameters.json") == check_four("protocols.json"):
-                    print "Check 4 success!"
+                    report(1, 4)
                 else:
-                    print "Check 4 fail!"
+                    report(0, 4)
+                
+               
 
                     
                         
