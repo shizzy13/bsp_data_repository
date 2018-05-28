@@ -36,7 +36,7 @@ optimizations = os.path.join(repository, "optimizations")
 
 #Extract files in same directory
 for folder in os.listdir(optimizations):
-    if (re.match('CA1', folder)): #Avoid README file
+    if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
         for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
@@ -66,3 +66,25 @@ for folder in os.listdir(optimizations):
                 if check_three_boolean:   
                     check_four_boolean = (check_four("morph.json") == check_four("features.json") == check_four("parameters.json") == check_four("protocols.json"))
                     report(check_four_boolean, 4)
+                mechanisms_list = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
+         
+
+                for f in os.listdir(os.path.join(optimizations, folder, folder, "mechanisms")):
+                    print "file", f
+                    d = {f:folder}
+                    key = f
+                    d.setdefault(key, [])
+                    d[key].append(folder)
+                    print "dictionary", d
+                    d[key].append(folder)
+                    print "updated dictionary", d
+                    
+    
+"""                    for files in os.listdir(curr_folder):
+                        if (files == folder):
+                            if f in os.chdir(os.path.join(optimizations, folder, folder, "mechanisms")):
+                                print "file in other folders", f
+                                d[f] = folder
+                                print "updated dictionary", d"""
+                     
+            
