@@ -1,24 +1,93 @@
-
 CA1_int_bAC_011017HP2_20180110153901
 Check 1 fail!
 Check 2 success!
 Check 3 success!
 Check 4 success!
+dict {'cacumm.mod': []}
+updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cagk.mod': []}
+updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cal2.mod': []}
+updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'can2.mod': []}
+updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'cat.mod': []}
+updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'h.mod': []}
+updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kaprox.mod': []}
+updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kca.mod': []}
+updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kdb.mod': []}
+updated dict {'kdb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+dict {'kdrbca1.mod': []}
+updated dict {'kdrbca1.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+dict {'kmb.mod': []}
+updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'na3n.mod': []}
+updated dict {'na3n.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
 
 
 CA1_int_bAC_011023HP2_20180116154023
-Check 1 fail!
 Check 1 success!
 Check 2 fail!
 Check 3 success!
 Check 4 success!
+dict {'cacumm.mod': []}
+updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cagk.mod': []}
+updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cal2.mod': []}
+updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'can2.mod': []}
+updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'cat.mod': []}
+updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'h.mod': []}
+updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kaprox.mod': []}
+updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kca.mod': []}
+updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kdb.mod': []}
+updated dict {'kdb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+dict {'kdrbca1.mod': []}
+updated dict {'kdrbca1.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+dict {'kmb.mod': []}
+updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'na3n.mod': []}
+updated dict {'na3n.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
 
 
 CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
 Check 1 success!
 Check 2 success!
 Check 3 fail!
-Check 4 success!
+dict {'cacumm.mod': []}
+updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cagk.mod': []}
+updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
+dict {'cal2.mod': []}
+updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'can2.mod': []}
+updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'cat.mod': []}
+updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'h.mod': []}
+updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kadist.mod': []}
+updated dict {'kadist.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kaprox.mod': []}
+updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kca.mod': []}
+updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kdrca1.mod': []}
+updated dict {'kdrca1.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kmb.mod': []}
+updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'naxn.mod': []}
+updated dict {'naxn.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
 
 
 CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
@@ -26,3 +95,26 @@ Check 1 success!
 Check 2 success!
 Check 3 success!
 Check 4 fail!
+dict {'cacuum_renamed.mod': []}
+updated dict {'cacuum_renamed.mod': ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'cal2.mod': []}
+updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'can2.mod': []}
+updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'cat.mod': []}
+updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'h.mod': []}
+updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kadist.mod': []}
+updated dict {'kadist.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kaprox.mod': []}
+updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kca.mod': []}
+updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kdrca1.mod': []}
+updated dict {'kdrca1.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'kmb.mod': []}
+updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+dict {'naxn.mod': []}
+updated dict {'naxn.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+>>> 

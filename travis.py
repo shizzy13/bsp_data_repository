@@ -69,22 +69,19 @@ for folder in os.listdir(optimizations):
                 mechanisms_list = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
          
 
-                for f in os.listdir(os.path.join(optimizations, folder, folder, "mechanisms")):
-                    print "file", f
-                    d = {f:folder}
-                    key = f
-                    d.setdefault(key, [])
-                    d[key].append(folder)
-                    print "dictionary", d
-                    d[key].append(folder)
-                    print "updated dictionary", d
-                    
-    
-"""                    for files in os.listdir(curr_folder):
-                        if (files == folder):
-                            if f in os.chdir(os.path.join(optimizations, folder, folder, "mechanisms")):
-                                print "file in other folders", f
-                                d[f] = folder
-                                print "updated dictionary", d"""
+        for f in os.listdir(os.path.join(optimizations, folder, folder, "mechanisms")):
+            d =  {f:[]}
+            print "dict", d
+            for item in os.listdir(optimizations):
+                if (not re.match('README', item)):
+                    os.chdir(os.path.join(optimizations, item, item, "mechanisms"))
+                    if os.path.isfile(f):
+                        d[f].append(item)
+#                        print "folder", item
+            print "updated dict", d
+
+                                
+
+                                
                      
             
