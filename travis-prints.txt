@@ -1,120 +1,48 @@
+Check 1: File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder
+Check 2: Only 1 file is present in 'morphology' folder 
+Check 3: features.json, morph.json, parameters.json, protocols.json files are present in config 
+Check 4: The same key is used in all .json files in 'config' folder 
+Check 5: All files with the same name in all 'mechanisms' folders are exact copies 
+Check 6: All the folders have the same structure 
+
+
 CA1_int_bAC_011017HP2_20180110153901
-Check 1 fail!
-Check 2 success!
-Check 3 success!
-Check 4 success!
-dict {'cacumm.mod': []}
-updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cagk.mod': []}
-updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cal2.mod': []}
-updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'can2.mod': []}
-updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'cat.mod': []}
-updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'h.mod': []}
-updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kaprox.mod': []}
-updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kca.mod': []}
-updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kdb.mod': []}
-updated dict {'kdb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
-dict {'kdrbca1.mod': []}
-updated dict {'kdrbca1.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
-dict {'kmb.mod': []}
-updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'na3n.mod': []}
-updated dict {'na3n.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+Check 1: Fail!
+    Name of file in 'morphology' folder: 011021HP2.asc
+    Value of the key in morph.json file: 011017HP2.asc
+Check 2: Success!
+Check 3: Success!
+Check 4: Success!
 
 
 CA1_int_bAC_011023HP2_20180116154023
-Check 1 success!
-Check 2 fail!
-Check 3 success!
-Check 4 success!
-dict {'cacumm.mod': []}
-updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cagk.mod': []}
-updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cal2.mod': []}
-updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'can2.mod': []}
-updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'cat.mod': []}
-updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'h.mod': []}
-updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kaprox.mod': []}
-updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kca.mod': []}
-updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kdb.mod': []}
-updated dict {'kdb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
-dict {'kdrbca1.mod': []}
-updated dict {'kdrbca1.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
-dict {'kmb.mod': []}
-updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'na3n.mod': []}
-updated dict {'na3n.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023']}
+Check 1: Success!
+Check 2: Fail!
+    Number of files present in 'morphology' folder: 2
+Check 3: Success!
+Check 4: Success!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-Check 1 success!
-Check 2 success!
-Check 3 fail!
-dict {'cacumm.mod': []}
-updated dict {'cacumm.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cagk.mod': []}
-updated dict {'cagk.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422']}
-dict {'cal2.mod': []}
-updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'can2.mod': []}
-updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'cat.mod': []}
-updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'h.mod': []}
-updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kadist.mod': []}
-updated dict {'kadist.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kaprox.mod': []}
-updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kca.mod': []}
-updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kdrca1.mod': []}
-updated dict {'kdrca1.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kmb.mod': []}
-updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'naxn.mod': []}
-updated dict {'naxn.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
+Check 1: Success!
+Check 2: Success!
+Check 3: Fail!
+    Files present in 'config' folder: ['featuree.json', 'features.json', 'morph.json', 'parameters.json', 'protocols.json']
+Check 4: Cannot run because Check 3 failed.
 
 
 CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-Check 1 success!
-Check 2 success!
-Check 3 success!
-Check 4 fail!
-dict {'cacuum_renamed.mod': []}
-updated dict {'cacuum_renamed.mod': ['CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'cal2.mod': []}
-updated dict {'cal2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'can2.mod': []}
-updated dict {'can2.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'cat.mod': []}
-updated dict {'cat.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'h.mod': []}
-updated dict {'h.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kadist.mod': []}
-updated dict {'kadist.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kaprox.mod': []}
-updated dict {'kaprox.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kca.mod': []}
-updated dict {'kca.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kdrca1.mod': []}
-updated dict {'kdrca1.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'kmb.mod': []}
-updated dict {'kmb.mod': ['CA1_int_bAC_011017HP2_20180110153901', 'CA1_int_bAC_011023HP2_20180116154023', 'CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
-dict {'naxn.mod': []}
-updated dict {'naxn.mod': ['CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422', 'CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621']}
->>> 
+Check 1: Success!
+Check 2: Success!
+Check 3: Success!
+Check 4: Fail!
+     CA1_PC_cAC_sig  is the key in in 'morph.json'
+     CA1_PC_cAC_sig  is the key in in 'features.json'
+     CA1_PC_cAa_sig  is the key in in 'parameters.json'
+     CA1_PC_cAC_sig  is the key in in 'protocols.json'
+
+Check 5: Fail!
+     File: cacumm.mod is not the same in 
+     C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\mechanisms
+     and
+     C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\mechanisms
