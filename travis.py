@@ -59,14 +59,26 @@ def check_five():
             if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms"),\
                                os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms"),\
                                listkeys[i]):
-                               print "\nCheck 5: Fail!"
-                               print "    ", "File:", listkeys[i], "is not the same in \n",\
-                                     "    ", os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms\n"),\
-                                     "    ", "and\n",\
-                                     "    ", os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms")
-                               return False
-    print "Check 5: Success!"
-    return True
+                print "\nCheck 5: Fail!"
+                print "    ", "File:", listkeys[i], "is not the same in \n",\
+                      "    ", os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms\n"),\
+                      "    ", "and\n",\
+                      "    ", os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms")
+                return True
+            else:
+                print "Check 5: Success!"
+        return  False
+
+def check_six (check_folder):
+    for folder in os.listdir(optimizations):
+        if (not re.match('README', folder)): #Avoid README file
+            if not os.path.isdir(os.path.join(optimizations, folder, folder, check_folder)):
+                print "\nCheck 6: Fail!"
+                print "    ", check_folder, "folder does not exist in", os.path.join(optimizations, folder, folder)
+                return False
+            else:
+                return True
+
 
 #Extract files in same directory                   
 repository = os.path.dirname(os.path.abspath(__file__))
@@ -74,13 +86,13 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
@@ -110,4 +122,7 @@ for folder in os.listdir(optimizations):
                     print "Check 4: Cannot run because Check 3 failed."
                 os.chdir(os.path.join('..','..','..'))
     
-(check_five(), 5)
+check_five()
+check_six_bool = (check_six("checkpoints") == check_six("config") == check_six("figures") == check_six("mechanisms") == check_six("model") == check_six("morphology") == check_six("tools"))
+if check_six_bool is True:
+    print "\nCheck 6: Success!"

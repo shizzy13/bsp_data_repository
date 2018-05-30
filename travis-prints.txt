@@ -42,7 +42,11 @@ Check 4: Fail!
      CA1_PC_cAC_sig  is the key in in 'protocols.json'
 
 Check 5: Fail!
-     File: cacumm.mod is not the same in 
+     File: cagk.mod is not the same in 
      C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\mechanisms
      and
      C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\mechanisms
+
+Check 6: Fail!
+     tools folder does not exist in C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901
+>>> 
