@@ -20,11 +20,15 @@ def check_one (name,morph_data):
     return same_name == 1
                 
 def check_two (name):
+    mfiles = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
     if name.__len__() == 1:
         print "Check 2: Success!"
     else:
         print "Check 2: Fail!"
         print "    Number of files present in 'morphology' folder:", name.__len__()
+        print "    Files in 'morphology' folder:"
+        for i in range (0,len(mfiles)):
+            print "       ", mfiles[i]
     return name.__len__() == 1
 
 def check_three(config_list):
@@ -33,7 +37,9 @@ def check_three(config_list):
         print "Check 3: Success!"
     else:
         print "Check 3: Fail!"
-        print "    Files present in 'config' folder:", config_list
+        print "    Files present in 'config' folder:"
+        for i in range (0,len(config_list)):
+            print "       ", config_list[i]
     return check_three == config_list
 
 def check_four(jjson):
@@ -53,17 +59,23 @@ def check_five():
         if (not re.match('README', folder)): #Avoid README file
             for f in os.listdir(os.path.join(optimizations, folder, folder, "mechanisms")):
                 d[f].append(folder)
+    difffile=0
+    print_fail_once=1
     for i in range(len(listkeys)):
         foldersofthekey=d.get(listkeys[i])
         for j in range(1,len(foldersofthekey)):
             if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
                                os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
-                print "\nCheck 5: Fail!"
+                if print_fail_once==1:
+                    print "\nCheck 6: Fail!"
+                    print_fail_once+=1
                 print "    ", "File:", listkeys[i], "is not the same in \n",\
-                      "    ", os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms\n"),\
-                      "    ", "and\n",\
-                      "    ", os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms")
-                return False
+                      "    ", foldersofthekey[0],\
+                      "    ", "\n     and\n",\
+                      "    ", foldersofthekey[j], "\n"
+                difffile=1
+    if difffile==1:
+        return False
     print "Check 5: Success!"
     return True
 
@@ -72,11 +84,22 @@ def check_six (check_folder):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(optimizations, folder, folder, check_folder)):
                 print "\nCheck 6: Fail!"
-                print "    ", check_folder, "folder does not exist in", os.path.join(optimizations, folder, folder)
+                print "    ", check_folder, "folder does not exist in directory:", folder
                 return False
             else:
                 return True
-
+def unique_key(list1):
+    unique_list = []
+    repeat_list = []
+    for x in list1:
+        if x not in unique_list:
+            unique_list.append(x)
+        else:
+            repeat_list.append(x)
+    for x in unique_list:
+        if x not in repeat_list:
+            return x
+     
 
 #Extract files in same directory                   
 repository = os.path.dirname(os.path.abspath(__file__))
@@ -111,11 +134,17 @@ for folder in os.listdir(optimizations):
                     if check_four_boolean is True:
                         print "Check 4: Success!"
                     else:
+                        check_four_keys = [check_four("morph.json"), check_four("features.json"), check_four("parameters.json"),check_four("protocols.json")]
                         print "Check 4: Fail!"
-                        print "    ", check_four("morph.json"), " is the key in in 'morph.json'"
-                        print "    ", check_four("features.json"), " is the key in in 'features.json'"
-                        print "    ", check_four("parameters.json"), " is the key in in 'parameters.json'"
-                        print "    ", check_four("protocols.json"), " is the key in in 'protocols.json'"      
+                        print "    The key '",unique_key(check_four_keys),"' in the file:" 
+                        if unique_key(check_four_keys) == check_four("morph.json"):
+                            print "    'morph.json' does not match the keys in the other files"
+                        elif unique_key(check_four_keys) == check_four("features.json"):
+                            print "   'features.json' does not match the keys in the other files"
+                        elif unique_key(check_four_keys) == check_four("parameters.json"):
+                             print "    'parameters.json' does not match the keys in the other files"
+                        elif unique_key(check_four_keys) == check_four("protocols.json"):
+                            print "    'protocols.json' does not match the keys in the other files"
                 else:
                     print "Check 4: Cannot run because Check 3 failed."
                 os.chdir(os.path.join('..','..','..'))

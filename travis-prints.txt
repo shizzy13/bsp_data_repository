@@ -19,6 +19,9 @@ CA1_int_bAC_011023HP2_20180116154023
 Check 1: Success!
 Check 2: Fail!
     Number of files present in 'morphology' folder: 2
+    Files in 'morphology' folder:
+        011023HP2 - Copia.asc
+        011023HP2.asc
 Check 3: Success!
 Check 4: Success!
 
@@ -27,7 +30,12 @@ CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
 Check 1: Success!
 Check 2: Success!
 Check 3: Fail!
-    Files present in 'config' folder: ['featuree.json', 'features.json', 'morph.json', 'parameters.json', 'protocols.json']
+    Files present in 'config' folder:
+        featuree.json
+        features.json
+        morph.json
+        parameters.json
+        protocols.json
 Check 4: Cannot run because Check 3 failed.
 
 
@@ -36,17 +44,30 @@ Check 1: Success!
 Check 2: Success!
 Check 3: Success!
 Check 4: Fail!
-     CA1_PC_cAC_sig  is the key in in 'morph.json'
-     CA1_PC_cAC_sig  is the key in in 'features.json'
-     CA1_PC_cAa_sig  is the key in in 'parameters.json'
-     CA1_PC_cAC_sig  is the key in in 'protocols.json'
-
-Check 5: Fail!
-     File: cagk.mod is not the same in 
-     C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901\mechanisms
-     and
-     C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011023HP2_20180116154023\CA1_int_bAC_011023HP2_20180116154023\mechanisms
+    The key ' CA1_PC_cAa_sig ' in the file:
+    'parameters.json' does not match the keys in the other files
 
 Check 6: Fail!
-     tools folder does not exist in C:\Users\neli\Desktop\TESTYAML\bsp_data_repository\optimizations\CA1_int_bAC_011017HP2_20180110153901\CA1_int_bAC_011017HP2_20180110153901
->>> 
+     File: cagk.mod is not the same in 
+     CA1_int_bAC_011017HP2_20180110153901      
+     and
+     CA1_int_bAC_011023HP2_20180116154023 
+
+     File: cagk.mod is not the same in 
+     CA1_int_bAC_011017HP2_20180110153901      
+     and
+     CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422 
+
+     File: cal2.mod is not the same in 
+     CA1_int_bAC_011017HP2_20180110153901      
+     and
+     CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422 
+
+     File: cal2.mod is not the same in 
+     CA1_int_bAC_011017HP2_20180110153901      
+     and
+     CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621 
+
+
+Check 6: Fail!
+     tools folder does not exist in directory: CA1_int_bAC_011017HP2_20180110153901
