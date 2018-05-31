@@ -107,13 +107,13 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        """for files in os.listdir(curr_folder):
+        for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))"""
+                os.chdir(os.path.join('..','..'))
 
 #Read .json file
         for files in os.listdir(curr_folder):
