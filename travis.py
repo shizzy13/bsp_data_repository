@@ -6,8 +6,8 @@ print "Check 1: File in 'morphology' folder has the same name as the value of th
 "Check 5: All files with the same name in all 'mechanisms' folders are exact copies \n", \
 "Check 6: All the folders have the same structure \n", \
 "Check 7: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
-"Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n"
-"Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'"
+"Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n",\
+"Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'",\
 
 def check_one (name,morph_data):
     same_name = 0
