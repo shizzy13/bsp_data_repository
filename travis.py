@@ -56,18 +56,16 @@ def check_five():
     for i in range(len(listkeys)):
         foldersofthekey=d.get(listkeys[i])
         for j in range(1,len(foldersofthekey)):
-            if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms"),\
-                               os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms"),\
-                               listkeys[i]):
+            if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
+                               os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
                 print "\nCheck 5: Fail!"
                 print "    ", "File:", listkeys[i], "is not the same in \n",\
                       "    ", os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms\n"),\
                       "    ", "and\n",\
                       "    ", os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms")
                 return False
-            else:
-                print "Check 5: Success!"
-        return  True
+    print "Check 5: Success!"
+    return True
 
 def check_six (check_folder):
     for folder in os.listdir(optimizations):
@@ -86,13 +84,13 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
