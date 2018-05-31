@@ -1,12 +1,13 @@
 import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp
 print "Check 1: File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder\n", \
 "Check 2: Only 1 file is present in 'morphology' folder \n", \
-"Check 3: features.json, morph.json, parameters.json, protocols.json files are present in 'config' folder \n", \
+"Check 3: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder \n", \
 "Check 4: The same key is used in all .json files in 'config' folder \n", \
 "Check 5: All files with the same name in all 'mechanisms' folders are exact copies \n", \
 "Check 6: All the folders have the same structure \n", \
-"Check 7: same 4 files are present in 'model' folder \n", \
-"Check 8: same 2 files are present in 'tools' folder \n"
+"Check 7: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
+"Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n"
+"Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'"
 
 def check_one (name,morph_data):
     same_name = 0
@@ -113,6 +114,14 @@ def check_eight(tools_list):
             print "       ", tools_list[i]
     return check_eight == tools_list
 
+def check_nine():
+    for line in open(os.path.join(optimizations, folder, folder, "opt_neuron.py")):
+         if line.startswith('evaluator = model.evaluator.create'):
+             start = "model.evaluator.create('"
+             end = "', "
+             return line[line.find(start)+len(start):line.rfind(end)]
+    
+
 def unique_key(list1):
     unique_list = []
     repeat_list = []
@@ -154,12 +163,13 @@ for folder in os.listdir(optimizations):
                 check_two(name)
                 config_list = os.listdir(os.path.join(optimizations, folder, folder, "config"))
                 bool_three = check_three(config_list)
+                check_four_keys = [check_four("morph.json"), check_four("features.json"), check_four("parameters.json"),check_four("protocols.json")]
                 if bool_three is True:   
                     check_four_boolean = (check_four("morph.json") == check_four("features.json") == check_four("parameters.json") == check_four("protocols.json"))
                     if check_four_boolean is True:
                         print "Check 4: Success!"
                     else:
-                        check_four_keys = [check_four("morph.json"), check_four("features.json"), check_four("parameters.json"),check_four("protocols.json")]
+                        
                         print "Check 4: Fail!"
                         print "    The key '",unique_key(check_four_keys),"' in the file:" 
                         if unique_key(check_four_keys) == check_four("morph.json"):
@@ -177,6 +187,17 @@ for folder in os.listdir(optimizations):
                 check_seven(model_list)
                 tools_list = os.listdir(os.path.join(optimizations, folder, folder, "tools"))
                 check_eight(tools_list)
+                if check_four_boolean is True:
+                    if check_nine() == check_four_keys[0]:
+                        print "Check 9: Success!"
+                    else:
+                        print "Check 9: Fail!"
+                        print "    The key in the .json files in 'config' is:", check_four_keys[0]
+                        print "    The key in 'opt_neuron.py' file, line 75 is:", check_nine()
+                else:
+                    print "Check 9: Cannot run because Check 4 failed."
+                           
+                    
     
 check_five()
 check_six_bool = (check_six("checkpoints") == check_six("config") == check_six("figures") == check_six("mechanisms") == check_six("model") == check_six("morphology") == check_six("tools"))

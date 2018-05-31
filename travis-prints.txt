@@ -1,9 +1,12 @@
 Check 1: File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder
 Check 2: Only 1 file is present in 'morphology' folder 
-Check 3: features.json, morph.json, parameters.json, protocols.json files are present in config 
+Check 3: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder 
 Check 4: The same key is used in all .json files in 'config' folder 
 Check 5: All files with the same name in all 'mechanisms' folders are exact copies 
 Check 6: All the folders have the same structure 
+Check 7: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder 
+Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder 
+
 
 
 CA1_int_bAC_011017HP2_20180110153901
@@ -13,6 +16,11 @@ Check 1: Fail!
 Check 2: Success!
 Check 3: Success!
 Check 4: Success!
+Check 7: Success!
+Check 8: Success!
+Check 9: Fail!
+    The key in the .json files in 'config' is: bACnoljp
+    The key in 'opt_neuron.py' file, line 75 is: 0bACnoljp
 
 
 CA1_int_bAC_011023HP2_20180116154023
@@ -24,6 +32,14 @@ Check 2: Fail!
         011023HP2.asc
 Check 3: Success!
 Check 4: Success!
+Check 7: Fail!
+    Files present in 'model' folder:
+        analysis.py
+        evaluator.py
+        Renamed_template.py
+        __init__.py
+Check 8: Success!
+Check 9: Success!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
@@ -37,6 +53,12 @@ Check 3: Fail!
         parameters.json
         protocols.json
 Check 4: Cannot run because Check 3 failed.
+Check 7: Success!
+Check 8: Fail!
+    Files present in 'tools' folder:
+        get_stats.py
+        RENAMED_task_stats.py
+Check 9: Success!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
@@ -46,8 +68,11 @@ Check 3: Success!
 Check 4: Fail!
     The key ' CA1_PC_cAa_sig ' in the file:
     'parameters.json' does not match the keys in the other files
+Check 7: Success!
+Check 8: Success!
+Check 9: Cannot run because Check 4 failed.
 
-Check 6: Fail!
+Check 5: Fail!
      File: cagk.mod is not the same in 
      CA1_int_bAC_011017HP2_20180110153901      
      and
@@ -68,6 +93,10 @@ Check 6: Fail!
      and
      CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621 
 
+     File: cat.mod is not the same in 
+     CA1_int_bAC_011017HP2_20180110153901      
+     and
+     CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422 
 
-Check 6: Fail!
-     tools folder does not exist in directory: CA1_int_bAC_011017HP2_20180110153901
+
+Check 6: Success!
