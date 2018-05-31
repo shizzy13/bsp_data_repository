@@ -69,7 +69,7 @@ def check_five():
             if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
                                os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
                 if print_fail_once==1:
-                    print "\nCheck 6: Fail!"
+                    print "\nCheck 5: Fail!"
                     print_fail_once+=1
                 print "    ", "File:", listkeys[i], "is not the same in \n",\
                       "    ", foldersofthekey[0],\
