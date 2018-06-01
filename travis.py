@@ -6,8 +6,10 @@ print "Check 1: File in 'morphology' folder has the same name as the value of th
 "Check 5: All files with the same name in all 'mechanisms' folders are exact copies \n", \
 "Check 6: All the folders have the same structure \n", \
 "Check 7: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
-"Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n"
-"Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'"
+"Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n", \
+"Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'\n", \
+"Check 10: 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders.\n", \
+"Check 11: 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders.\n", \
 
 def check_one (name,morph_data):
     same_name = 0
@@ -120,7 +122,88 @@ def check_nine():
              start = "model.evaluator.create('"
              end = "', "
              return line[line.find(start)+len(start):line.rfind(end)]
+
+def check_ten(seed_list, seed_list_fail):
+    hoc_list = []
+    hoc_list_fail = []
+    pkl_list = []
+    pkl_list_fail = []
+
+    for y in os.listdir(os.path.join(optimizations, folder, folder, "checkpoints")):
+        if '.hoc' in y:
+            start = "cell_"
+            end = "_0.hoc"
+            hoc_list.append(y[y.find(start)+len(start):y.rfind(end)])
+            hoc_list_fail.append(y)
+
+    for z in os.listdir(os.path.join(optimizations, folder, folder, "checkpoints")):
+        if '.pkl' in z:
+            start = ""
+            end = ".pkl"
+            pkl_list.append(z[z.find(start)+len(start):z.rfind(end)])
+            pkl_list_fail.append(z)
+
+    if seed_list == hoc_list == pkl_list:
+        print "Check 10: Success!"
+    else:
+        print "Check 10: Fail!"
+        print "    'r_seed' folders:"
+        for x in seed_list_fail:
+            print "        ", x
+        print "    '.hoc' files:"
+        for y in hoc_list_fail:
+            print "        ", y
+        print "    '.pkl' files:"
+        for z in pkl_list_fail:
+            print "        ", z
+    return
+
+def check_eleven(seed_list, seed_list_fail):
+    evolution_list = []
+    evolution_list_fail = []
+    objectives_list = []
+    objectives_list_fail = []
+    responses_list = []
+    responses_list_fail = []
     
+    for x in os.listdir(os.path.join(optimizations, folder, folder, "figures")):
+        if 'evolution' in x:
+            start = "neuron_evolution_"
+            end = ".pdf"
+            evolution_list.append(x[x.find(start)+len(start):x.rfind(end)])
+            evolution_list_fail.append(x)
+    for y in os.listdir(os.path.join(optimizations, folder, folder, "figures")):
+        if 'objectives' in y:
+            start = "neuron_objectives_"
+            end = ".pdf"
+            objectives_list.append(y[y.find(start)+len(start):y.rfind(end)])
+            objectives_list_fail.append(y)
+
+    for z in os.listdir(os.path.join(optimizations, folder, folder, "figures")):
+        if 'responses' in z:
+            start = "neuron_responses_"
+            end = ".pdf"
+            responses_list.append(z[z.find(start)+len(start):z.rfind(end)])
+            responses_list_fail.append(z)
+
+    if seed_list == evolution_list == objectives_list == responses_list:
+        print "Check 11: Success!"
+    else:
+        print "Check 11: Fail!"
+        print "    'r_seed' folders:"
+        for q in seed_list_fail:
+            print "        ", q
+        print "    'evolution' files:"
+        for x in evolution_list_fail:
+            print "        ", x
+        print "    'objectives' files:"
+        for y in objectives_list_fail:
+            print "        ", y
+        print "    'responses' files:"
+        for z in responses_list_fail:
+            print "        ", z    
+        
+    return
 
 def unique_key(list1):
     unique_list = []
@@ -141,13 +224,13 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
@@ -196,6 +279,16 @@ for folder in os.listdir(optimizations):
                         print "    The key in 'opt_neuron.py' file, line 75 is:", check_nine()
                 else:
                     print "Check 9: Cannot run because Check 4 failed."
+                seed_list = []
+                seed_list_fail = []
+                for x in os.listdir(os.path.join(optimizations, folder, folder)):
+                    if (x.startswith('r_seed')):
+                        start = "r_"
+                        end = "_0"
+                        seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                        seed_list_fail.append(x)    
+                check_ten(seed_list, seed_list_fail)
+                check_eleven(seed_list, seed_list_fail)
                            
                     
     
