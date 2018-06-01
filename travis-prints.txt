@@ -1,62 +1,71 @@
-Check 1: File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder
-Check 2: Only 1 file is present in 'morphology' folder 
-Check 3: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder 
-Check 4: The same key is used in all .json files in 'config' folder 
-Check 5: All files with the same name in all 'mechanisms' folders are exact copies 
-Check 6: All the folders have the same structure 
-Check 7: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder 
-Check 8: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder 
-Check 9: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config' 
+Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder 
+Check 2: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder 
+Check 3: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder 
+Check 4: Only 1 file is present in 'morphology' folder 
+Check 5: File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder
+Check 6: The same key is used in all .json files in 'config' folder 
+Check 7: In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'
+Check 8: 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders.
+Check 9: 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders.
+Check 10: All files with the same name in all 'mechanisms' folders are exact copies 
+Check 11: All the folders have the same structure 
+
 
 CA1_int_bAC_011017HP2_20180110153901
-Check 1: Fail!
-    Name of file in 'morphology' folder: 011021HP2.asc
-    Value of the key in morph.json file: 011017HP2.asc
+Check 1: Success!
 Check 2: Success!
 Check 3: Success!
 Check 4: Success!
+Check 5: Fail!
+    Name of file in 'morphology' folder: 011021HP2.asc
+    Value of the key in morph.json file: 011017HP2.asc
+Check 6: Success!
 Check 7: Success!
 Check 8: Success!
-Check 9: Fail!
-    The key in the .json files in 'config' is: bACnoljp
-    The key in 'opt_neuron.py' file, line 75 is: 0bACnoljp
+Check 9: Success!
 
 
 CA1_int_bAC_011023HP2_20180116154023
 Check 1: Success!
 Check 2: Fail!
-    Number of files present in 'morphology' folder: 2
-    Files in 'morphology' folder:
-        011023HP2 - Copia.asc
-        011023HP2.asc
-Check 3: Success!
-Check 4: Success!
-Check 7: Fail!
     Files present in 'model' folder:
         analysis.py
         evaluator.py
         Renamed_template.py
+        template.py
         __init__.py
+Check 3: Success!
+Check 4: Fail!
+    Number of files present in 'morphology' folder: 2
+    Files in 'morphology' folder:
+        011023HP2 - Copia.asc
+        011023HP2.asc
+Check 5: Success!
+Check 6: Success!
+Check 7: Success!
 Check 8: Success!
 Check 9: Success!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
-Check 1: Success!
-Check 2: Success!
-Check 3: Fail!
+Check 1: Fail!
     Files present in 'config' folder:
         featuree.json
         features.json
         morph.json
         parameters.json
         protocols.json
-Check 4: Cannot run because Check 3 failed.
-Check 7: Success!
-Check 8: Fail!
+Check 2: Success!
+Check 3: Fail!
     Files present in 'tools' folder:
         get_stats.py
         RENAMED_task_stats.py
+        task_stats.py
+Check 4: Success!
+Check 5: Success!
+Check 6: Cannot run because Check 1 failed.
+Check 7: Success!
+Check 8: Success!
 Check 9: Success!
 
 
@@ -64,14 +73,51 @@ CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
 Check 1: Success!
 Check 2: Success!
 Check 3: Success!
-Check 4: Fail!
+Check 4: Success!
+Check 5: Success!
+Check 6: Fail!
     The key ' CA1_PC_cAa_sig ' in the file:
     'parameters.json' does not match the keys in the other files
-Check 7: Success!
-Check 8: Success!
-Check 9: Cannot run because Check 4 failed.
+Check 7: Cannot run because Check 6 failed.
+Check 8: Fail!
+    'r_seed' folders:
+         r_seed3_0
+         r_seed4_0
+         r_seed5_0
+         r_seed6_0
+    '.hoc' files:
+         cell_seed1_0.hoc
+         cell_seed2_0.hoc
+         cell_seed5_0.hoc
+         cell_seed6_0.hoc
+    '.pkl' files:
+         seed1.pkl
+         seed2.pkl
+         seed5.pkl
+         seed6.pkl
+Check 9: Fail!
+    'r_seed' folders:
+         r_seed3_0
+         r_seed4_0
+         r_seed5_0
+         r_seed6_0
+    'evolution' files:
+         neuron_evolution_seed31.pdf
+         neuron_evolution_seed4.pdf
+         neuron_evolution_seed5.pdf
+         neuron_evolution_seed6.pdf
+    'objectives' files:
+         neuron_objectives_seed3.pdf
+         neuron_objectives_seed4.pdf
+         neuron_objectives_seed5.pdf
+         neuron_objectives_seed6.pdf
+    'responses' files:
+         neuron_responses_seed3.pdf
+         neuron_responses_seed4.pdf
+         neuron_responses_seed5.pdf
+         neuron_responses_seed6.pdf
 
-Check 5: Fail!
+Check 10: Fail!
      File: cagk.mod is not the same in 
      CA1_int_bAC_011017HP2_20180110153901      
      and
@@ -98,5 +144,5 @@ Check 5: Fail!
      CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422 
 
 
-Check 6: Success!
+Check 11: Success!
 >>> 
