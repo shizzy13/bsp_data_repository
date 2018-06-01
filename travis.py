@@ -25,7 +25,7 @@ def check_one(config_list):
     return check_one == config_list
 
 def check_two(model_list):
-    check_two = ['analysis.py', 'evaluator.py', 'template.py', '__init__.py']
+    check_two = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
     if check_two == model_list:
         print "Check 2: Success!"
     else:
