@@ -13,40 +13,40 @@ print"Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json
 
 
 
-def check_1(config_list):
-    check_1 = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-    if check_1 == config_list:
+def check_one(config_list):
+    check_one = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
+    if check_one == config_list:
         print "Check 1: Success!"
     else:
         print "Check 1: Fail!"
         print "    Files present in 'config' folder:"
         for i in range (0,len(config_list)):
             print "       ", config_list[i]
-    return check_1 == config_list
+    return check_one == config_list
 
-def check_2(model_list):
-    check_2 = ['analysis.py', 'evaluator.py', 'template.py', '__init__.py']
-    if check_2 == model_list:
+def check_two(model_list):
+    check_two = ['analysis.py', 'evaluator.py', 'template.py', '__init__.py']
+    if check_two == model_list:
         print "Check 2: Success!"
     else:
         print "Check 2: Fail!"
         print "    Files present in 'model' folder:"
         for i in range (0,len(model_list)):
             print "       ", model_list[i]
-    return check_2 == model_list
+    return check_two == model_list
 
-def check_3(tools_list):
-    check_3 = ['get_stats.py', 'task_stats.py']
-    if check_3 == tools_list:
+def check_three(tools_list):
+    check_three = ['get_stats.py', 'task_stats.py']
+    if check_three == tools_list:
         print "Check 3: Success!"
     else:
         print "Check 3: Fail!"
         print "    Files present in 'tools' folder:"
         for i in range (0,len(tools_list)):
             print "       ", tools_list[i]
-    return check_3 == tools_list
+    return check_three == tools_list
 
-def check_4 (name):
+def check_four (name):
     mfiles = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
     if name.__len__() == 1:
         print "Check 4: Success!"
@@ -58,7 +58,7 @@ def check_4 (name):
             print "       ", mfiles[i]
     return name.__len__() == 1
 
-def check_5 (name,morph_data):
+def check_five (name,morph_data):
     same_name = 0
     for n in name:
         if n == morph_data.values()[0]:
@@ -72,19 +72,19 @@ def check_5 (name,morph_data):
     return same_name == 1
 
                 
-def check_6(jjson):
+def check_six(jjson):
     with open(jjson) as json_file:
         json_data = json.load(json_file)
     return json_data.keys()[0]
 
-def check_7():
+def check_seven():
     for line in open(os.path.join(optimizations, folder, folder, "opt_neuron.py")):
          if line.startswith('evaluator = model.evaluator.create'):
              start = "model.evaluator.create('"
              end = "', "
              return line[line.find(start)+len(start):line.rfind(end)]
 
-def check_8(seed_list, seed_list_fail):
+def check_eight(seed_list, seed_list_fail):
     hoc_list = []
     hoc_list_fail = []
     pkl_list = []
@@ -119,7 +119,7 @@ def check_8(seed_list, seed_list_fail):
             print "        ", z
     return
 
-def check_9(seed_list, seed_list_fail):
+def check_nine(seed_list, seed_list_fail):
     evolution_list = []
     evolution_list_fail = []
     objectives_list = []
@@ -165,7 +165,7 @@ def check_9(seed_list, seed_list_fail):
             print "        ", z    
     return
 
-def check_10():
+def check_ten():
     listkeys=[]
     for folder in os.listdir(optimizations):
         if (not re.match('README', folder)): #Avoid README file
@@ -197,7 +197,7 @@ def check_10():
     print "Check 5: Success!"
     return True
 
-def check_11 (check_folder):
+def check_eleven (check_folder):
     for folder in os.listdir(optimizations):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(optimizations, folder, folder, check_folder)):
@@ -225,13 +225,13 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        """for files in os.listdir(curr_folder):
+        for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))"""
+                os.chdir(os.path.join('..','..'))
 
 #Read .json file
         for files in os.listdir(curr_folder):
@@ -244,40 +244,40 @@ for folder in os.listdir(optimizations):
                 name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
                 print "\n\n", folder
                 config_list = os.listdir(os.path.join(optimizations, folder, folder, "config"))
-                check_1_boolean = check_1(config_list)
+                check_one_boolean = check_one(config_list)
                 model_list = os.listdir(os.path.join(optimizations, folder, folder, "model"))
-                check_2(model_list)
+                check_two(model_list)
                 tools_list = os.listdir(os.path.join(optimizations, folder, folder, "tools"))
-                check_3(tools_list)
-                check_4(name)
-                check_5(name,morph_data)
-                check_6_keys = [check_6("morph.json"), check_6("features.json"), check_6("parameters.json"),check_6("protocols.json")]
-                if check_1_boolean is True:   
-                    check_6_boolean = (check_6("morph.json") == check_6("features.json") == check_6("parameters.json") == check_6("protocols.json"))
-                    if check_6_boolean is True:
+                check_three(tools_list)
+                check_four(name)
+                check_five(name,morph_data)
+                check_six_keys = [check_six("morph.json"), check_six("features.json"), check_six("parameters.json"),check_six("protocols.json")]
+                if check_one_boolean is True:   
+                    check_six_boolean = (check_six("morph.json") == check_six("features.json") == check_six("parameters.json") == check_six("protocols.json"))
+                    if check_six_boolean is True:
                         print "Check 6: Success!"
                     else:
                         
                         print "Check 6: Fail!"
-                        print "    The key '",unique_key(check_6_keys),"' in the file:" 
-                        if unique_key(check_6_keys) == check_6("morph.json"):
+                        print "    The key '",unique_key(check_six_keys),"' in the file:" 
+                        if unique_key(check_six_keys) == check_six("morph.json"):
                             print "    'morph.json' does not match the keys in the other files"
-                        elif unique_key(check_6_keys) == check_6("features.json"):
+                        elif unique_key(check_six_keys) == check_six("features.json"):
                             print "   'features.json' does not match the keys in the other files"
-                        elif unique_key(check_6_keys) == check_6("parameters.json"):
+                        elif unique_key(check_six_keys) == check_six("parameters.json"):
                              print "    'parameters.json' does not match the keys in the other files"
-                        elif unique_key(check_6_keys) == check_6("protocols.json"):
+                        elif unique_key(check_six_keys) == check_six("protocols.json"):
                             print "    'protocols.json' does not match the keys in the other files"
                 else:
                     print "Check 6: Cannot run because Check 1 failed."
                 os.chdir(os.path.join('..','..','..'))
-                if check_6_boolean is True:
-                    if check_7() == check_6_keys[0]:
+                if check_six_boolean is True:
+                    if check_seven() == check_six_keys[0]:
                         print "Check 7: Success!"
                     else:
                         print "Check 7: Fail!"
-                        print "    The key in the .json files in 'config' is:", check_6_keys[0]
-                        print "    The key in 'opt_neuron.py' file, line 75 is:", check_7()
+                        print "    The key in the .json files in 'config' is:", check_six_keys[0]
+                        print "    The key in 'opt_neuron.py' file, line 75 is:", check_seven()
                 else:
                     print "Check 7: Cannot run because Check 6 failed."
                 seed_list = []
@@ -288,12 +288,12 @@ for folder in os.listdir(optimizations):
                         end = "_0"
                         seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                         seed_list_fail.append(x)    
-                check_8(seed_list, seed_list_fail)
-                check_9(seed_list, seed_list_fail)
+                check_eight(seed_list, seed_list_fail)
+                check_nine(seed_list, seed_list_fail)
                            
                     
     
-check_10()
-check_11_bool = (check_11("checkpoints") == check_11("config") == check_11("figures") == check_11("mechanisms") == check_11("model") == check_11("morphology") == check_11("tools"))
-if check_11_bool is True:
+check_ten()
+check_eleven_bool = (check_eleven("checkpoints") == check_eleven("config") == check_eleven("figures") == check_eleven("mechanisms") == check_eleven("model") == check_eleven("morphology") == check_eleven("tools"))
+if check_eleven_bool is True:
     print "\nCheck 11: Success!"
