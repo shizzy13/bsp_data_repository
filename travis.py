@@ -10,13 +10,14 @@ print"Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json
 "Check 9: 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders.\n", \
 "Check 10: All files with the same name in all 'mechanisms' folders are exact copies \n", \
 "Check 11: All the folders have the same structure \n", \
+"Check 12: .json files in config are valid \n", \
 
 
 
 def check_one(config_list):
     check_one = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
     if check_one == config_list:
-        print "Check 1: Success!"
+        print "Check 1: Pass!"
     else:
         print "Check 1: Fail!"
         print "    Files present in 'config' folder:"
@@ -27,7 +28,7 @@ def check_one(config_list):
 def check_two(model_list):
     check_two = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
     if check_two == model_list:
-        print "Check 2: Success!"
+        print "Check 2: Pass!"
     else:
         print "Check 2: Fail!"
         print "    Files present in 'model' folder:"
@@ -38,7 +39,7 @@ def check_two(model_list):
 def check_three(tools_list):
     check_three = ['get_stats.py', 'task_stats.py']
     if check_three == tools_list:
-        print "Check 3: Success!"
+        print "Check 3: Pass!"
     else:
         print "Check 3: Fail!"
         print "    Files present in 'tools' folder:"
@@ -49,7 +50,7 @@ def check_three(tools_list):
 def check_four (name):
     mfiles = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
     if name.__len__() == 1:
-        print "Check 4: Success!"
+        print "Check 4: Pass!"
     else:
         print "Check 4: Fail!"
         print "    Number of files present in 'morphology' folder:", name.__len__()
@@ -64,7 +65,7 @@ def check_five (name,morph_data):
         if n == morph_data.values()[0]:
             same_name += 1
     if same_name == 1:
-        print "Check 5: Success!"
+        print "Check 5: Pass!"
     else:
         print "Check 5: Fail!"
         print "    Name of file in 'morphology' folder:", n
@@ -105,7 +106,7 @@ def check_eight(seed_list, seed_list_fail):
             pkl_list_fail.append(z)
 
     if seed_list == hoc_list == pkl_list:
-        print "Check 8: Success!"
+        print "Check 8: Pass!"
     else:
         print "Check 8: Fail!"
         print "    'r_seed' folders:"
@@ -148,7 +149,7 @@ def check_nine(seed_list, seed_list_fail):
             responses_list_fail.append(z)
 
     if seed_list == evolution_list == objectives_list == responses_list:
-        print "Check 9: Success!"
+        print "Check 9: Pass!"
     else:
         print "Check 9: Fail!"
         print "    'r_seed' folders:"
@@ -194,7 +195,7 @@ def check_ten():
                 difffile=1
     if difffile==1:
         return False
-    print "Check 5: Success!"
+    print "Check 5: Pass!"
     return True
 
 def check_eleven (check_folder):
@@ -206,6 +207,17 @@ def check_eleven (check_folder):
                 return False
             else:
                 return True
+
+def json_validator(f):
+    with open(f) as json_file:
+        try:
+            json_data = json.load(json_file)
+            return True
+        except ValueError as error:
+            print "Check 12: Fail!"
+            print "    ", f
+            print("    Is invalid json: %s" % error)
+            return False
 
 def unique_key(list1):
     unique_list = []
@@ -225,18 +237,22 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
             if (files == folder):
                 os.chdir(os.path.join(optimizations, folder, folder, "config"))
+                check_twelve_bool = json_validator("features.json") == json_validator("morph.json")==json_validator("parameters.json")==json_validator("protocols.json")
+                if check_twelve_bool is True:
+                    print "Check 12: Pass!"
+
                 with open("morph.json") as json_file:
                     morph_data = json.load(json_file)
                     
@@ -255,7 +271,7 @@ for folder in os.listdir(optimizations):
                 if check_one_boolean is True:   
                     check_six_boolean = (check_six("morph.json") == check_six("features.json") == check_six("parameters.json") == check_six("protocols.json"))
                     if check_six_boolean is True:
-                        print "Check 6: Success!"
+                        print "Check 6: Pass!"
                     else:
                         
                         print "Check 6: Fail!"
@@ -273,7 +289,7 @@ for folder in os.listdir(optimizations):
                 os.chdir(os.path.join('..','..','..'))
                 if check_six_boolean is True:
                     if check_seven() == check_six_keys[0]:
-                        print "Check 7: Success!"
+                        print "Check 7: Pass!"
                     else:
                         print "Check 7: Fail!"
                         print "    The key in the .json files in 'config' is:", check_six_keys[0]
@@ -290,10 +306,14 @@ for folder in os.listdir(optimizations):
                         seed_list_fail.append(x)    
                 check_eight(seed_list, seed_list_fail)
                 check_nine(seed_list, seed_list_fail)
+                
+
+                        
+                
                            
                     
     
 check_ten()
 check_eleven_bool = (check_eleven("checkpoints") == check_eleven("config") == check_eleven("figures") == check_eleven("mechanisms") == check_eleven("model") == check_eleven("morphology") == check_eleven("tools"))
 if check_eleven_bool is True:
-    print "\nCheck 11: Success!"
+    print "\nCheck 11: Pass!"
