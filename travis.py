@@ -19,7 +19,7 @@ def check_zero(f):
             json_data = json.load(json_file)
             return True
         except ValueError as error:
-            print "\n\nCheck 0: Fail!"
+            print "Check 0: Fail!"
             print "    ", f
             print("    Is invalid json: %s" % error)
             return False
@@ -176,9 +176,6 @@ def check_nine(seed_list, seed_list_fail):
             print "        ", z    
     return
 
-
-    
-
 def check_ten():
     listkeys=[]
     for folder in os.listdir(optimizations):
@@ -251,17 +248,17 @@ for folder in os.listdir(optimizations):
 #Read .json file
         for files in os.listdir(curr_folder):
             if (files == folder):
+				print "\n\n", folder
                 os.chdir(os.path.join(optimizations, folder, folder, "config"))
                 check_zero_bool = check_zero("features.json") == check_zero("morph.json")==check_zero("parameters.json")==check_zero("protocols.json")
                 if check_zero_bool is True:
-                    print "\n\nCheck 0: Pass!"
+                    print "Check 0: Pass!"
 
                 with open("morph.json") as json_file:
                     morph_data = json.load(json_file)
                     
 #Open file in morphology with name json_data[char]
                 name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
-                print "\n\n", folder
                 config_list = os.listdir(os.path.join(optimizations, folder, folder, "config"))
                 check_one_boolean = check_one(config_list)
                 model_list = os.listdir(os.path.join(optimizations, folder, folder, "model"))
