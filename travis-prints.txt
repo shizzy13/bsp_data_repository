@@ -1,3 +1,4 @@
+Check 0: .json files in config are valid 
 Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder 
 Check 2: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder 
 Check 3: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder 
@@ -11,22 +12,33 @@ Check 10: All files with the same name in all 'mechanisms' folders are exact cop
 Check 11: All the folders have the same structure 
 
 
+Check 0: Fail!
+     parameters.json
+    Is invalid json: Expecting , delimiter: line 3 column 17 (char 31)
+
+
 CA1_int_bAC_011017HP2_20180110153901
-Check 1: Success!
-Check 2: Success!
-Check 3: Success!
-Check 4: Success!
-Check 5: Fail!
-    Name of file in 'morphology' folder: 011021HP2.asc
-    Value of the key in morph.json file: 011017HP2.asc
-Check 6: Success!
-Check 7: Success!
-Check 8: Success!
-Check 9: Success!
+Check 1: Pass!
+Check 2: Fail!
+    Files present in 'model' folder:
+        analysis.py
+        evaluator.py
+        template.py
+        __init__.py
+Check 3: Pass!
+Check 4: Pass!
+Check 5: Cannot run because Check 0 failed.
+Check 6: Cannot run because Check 0 failed.
+Check 7: Cannot run because Check 0 failed.
+Check 8: Pass!
+Check 9: Pass!
+
+
+Check 0: Pass!
 
 
 CA1_int_bAC_011023HP2_20180116154023
-Check 1: Success!
+Check 1: Pass!
 Check 2: Fail!
     Files present in 'model' folder:
         analysis.py
@@ -34,17 +46,20 @@ Check 2: Fail!
         Renamed_template.py
         template.py
         __init__.py
-Check 3: Success!
+Check 3: Pass!
 Check 4: Fail!
     Number of files present in 'morphology' folder: 2
     Files in 'morphology' folder:
         011023HP2 - Copia.asc
         011023HP2.asc
-Check 5: Success!
-Check 6: Success!
-Check 7: Success!
-Check 8: Success!
-Check 9: Success!
+Check 5: Pass!
+Check 6: Pass!
+Check 7: Pass!
+Check 8: Pass!
+Check 9: Pass!
+
+
+Check 0: Pass!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422
@@ -55,26 +70,39 @@ Check 1: Fail!
         morph.json
         parameters.json
         protocols.json
-Check 2: Success!
+Check 2: Fail!
+    Files present in 'model' folder:
+        analysis.py
+        evaluator.py
+        template.py
+        __init__.py
 Check 3: Fail!
     Files present in 'tools' folder:
         get_stats.py
         RENAMED_task_stats.py
         task_stats.py
-Check 4: Success!
-Check 5: Success!
+Check 4: Pass!
+Check 5: Pass!
 Check 6: Cannot run because Check 1 failed.
-Check 7: Success!
-Check 8: Success!
-Check 9: Success!
+Check 7: Cannot run because Check 1 failed.
+Check 8: Pass!
+Check 9: Pass!
+
+
+Check 0: Pass!
 
 
 CA1_pyr_cACpyr_oh140807_A0_idJ_20170915113621
-Check 1: Success!
-Check 2: Success!
-Check 3: Success!
-Check 4: Success!
-Check 5: Success!
+Check 1: Pass!
+Check 2: Fail!
+    Files present in 'model' folder:
+        analysis.py
+        evaluator.py
+        template.py
+        __init__.py
+Check 3: Pass!
+Check 4: Pass!
+Check 5: Pass!
 Check 6: Fail!
     The key ' CA1_PC_cAa_sig ' in the file:
     'parameters.json' does not match the keys in the other files
@@ -88,11 +116,15 @@ Check 8: Fail!
     '.hoc' files:
          cell_seed1_0.hoc
          cell_seed2_0.hoc
+         cell_seed3_0.hoc
+         cell_seed4_0.hoc
          cell_seed5_0.hoc
          cell_seed6_0.hoc
     '.pkl' files:
          seed1.pkl
          seed2.pkl
+         seed3.pkl
+         seed4.pkl
          seed5.pkl
          seed6.pkl
 Check 9: Fail!
@@ -102,6 +134,7 @@ Check 9: Fail!
          r_seed5_0
          r_seed6_0
     'evolution' files:
+         neuron_evolution_seed3.pdf
          neuron_evolution_seed31.pdf
          neuron_evolution_seed4.pdf
          neuron_evolution_seed5.pdf
@@ -144,5 +177,5 @@ Check 10: Fail!
      CA1_pyr_cACpyr_oh140807_A0_idH_20170915113422 
 
 
-Check 11: Success!
+Check 11: Pass!
 >>> 

@@ -1,5 +1,6 @@
 import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp
-print"Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder \n", \
+print "Check 0: .json files in config are valid \n", \
+"Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder \n", \
 "Check 2: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
 "Check 3: 'get_stats.py', 'task_stats.py' files are present in 'tools' folder \n", \
 "Check 4: Only 1 file is present in 'morphology' folder \n", \
@@ -10,9 +11,18 @@ print"Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json
 "Check 9: 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders.\n", \
 "Check 10: All files with the same name in all 'mechanisms' folders are exact copies \n", \
 "Check 11: All the folders have the same structure \n", \
-"Check 12: .json files in config are valid \n", \
 
 
+def check_zero(f):
+    with open(f) as json_file:
+        try:
+            json_data = json.load(json_file)
+            return True
+        except ValueError as error:
+            print "\n\nCheck 0: Fail!"
+            print "    ", f
+            print("    Is invalid json: %s" % error)
+            return False
 
 def check_one(config_list):
     check_one = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
@@ -208,17 +218,6 @@ def check_eleven (check_folder):
             else:
                 return True
 
-def json_validator(f):
-    with open(f) as json_file:
-        try:
-            json_data = json.load(json_file)
-            return True
-        except ValueError as error:
-            print "Check 12: Fail!"
-            print "    ", f
-            print("    Is invalid json: %s" % error)
-            return False
-
 def unique_key(list1):
     unique_list = []
     repeat_list = []
@@ -237,21 +236,21 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
             if (files == folder):
                 os.chdir(os.path.join(optimizations, folder, folder, "config"))
-                check_twelve_bool = json_validator("features.json") == json_validator("morph.json")==json_validator("parameters.json")==json_validator("protocols.json")
-                if check_twelve_bool is True:
-                    print "Check 12: Pass!"
+                check_zero_bool = check_zero("features.json") == check_zero("morph.json")==check_zero("parameters.json")==check_zero("protocols.json")
+                if check_zero_bool is True:
+                    print "\n\nCheck 0: Pass!"
 
                 with open("morph.json") as json_file:
                     morph_data = json.load(json_file)
@@ -266,14 +265,20 @@ for folder in os.listdir(optimizations):
                 tools_list = os.listdir(os.path.join(optimizations, folder, folder, "tools"))
                 check_three(tools_list)
                 check_four(name)
-                check_five(name,morph_data)
-                check_six_keys = [check_six("morph.json"), check_six("features.json"), check_six("parameters.json"),check_six("protocols.json")]
-                if check_one_boolean is True:   
+                if check_zero_bool is True:
+                    check_five(name,morph_data)
+                else:
+                    print "Check 5: Cannot run because Check 0 failed."
+                if check_zero_bool is False:
+                    print "Check 6: Cannot run because Check 0 failed."
+                    print "Check 7: Cannot run because Check 0 failed."
+                elif check_one_boolean is False:
+                    print "Check 6: Cannot run because Check 1 failed."
+                    print "Check 7: Cannot run because Check 1 failed."
+                else:    
+                    check_six_keys = [check_six("morph.json"), check_six("features.json"), check_six("parameters.json"),check_six("protocols.json")]
                     check_six_boolean = (check_six("morph.json") == check_six("features.json") == check_six("parameters.json") == check_six("protocols.json"))
-                    if check_six_boolean is True:
-                        print "Check 6: Pass!"
-                    else:
-                        
+                    if check_six_boolean is False:
                         print "Check 6: Fail!"
                         print "    The key '",unique_key(check_six_keys),"' in the file:" 
                         if unique_key(check_six_keys) == check_six("morph.json"):
@@ -284,18 +289,18 @@ for folder in os.listdir(optimizations):
                              print "    'parameters.json' does not match the keys in the other files"
                         elif unique_key(check_six_keys) == check_six("protocols.json"):
                             print "    'protocols.json' does not match the keys in the other files"
-                else:
-                    print "Check 6: Cannot run because Check 1 failed."
-                os.chdir(os.path.join('..','..','..'))
-                if check_six_boolean is True:
-                    if check_seven() == check_six_keys[0]:
-                        print "Check 7: Pass!"
-                    else:
-                        print "Check 7: Fail!"
-                        print "    The key in the .json files in 'config' is:", check_six_keys[0]
-                        print "    The key in 'opt_neuron.py' file, line 75 is:", check_seven()
-                else:
-                    print "Check 7: Cannot run because Check 6 failed."
+                    else:    
+                        print "Check 6: Pass!"
+
+                        os.chdir(os.path.join('..','..','..'))
+                        if check_seven() == check_six_keys[0]:
+                            print "Check 7: Pass!"
+                        else:
+                            print "Check 7: Fail!"
+                            print "    The key in the .json files in 'config' is:", check_six_keys[0]
+                            print "    The key in 'opt_neuron.py' file, line 75 is:", check_seven()
+                    if check_six_boolean is False:
+                        print "Check 7: Cannot run because Check 6 failed."
                 seed_list = []
                 seed_list_fail = []
                 for x in os.listdir(os.path.join(optimizations, folder, folder)):
