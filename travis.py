@@ -248,7 +248,7 @@ for folder in os.listdir(optimizations):
 #Read .json file
         for files in os.listdir(curr_folder):
             if (files == folder):
-				print "\n\n", folder
+                print "\n\n", folder
                 os.chdir(os.path.join(optimizations, folder, folder, "config"))
                 check_zero_bool = check_zero("features.json") == check_zero("morph.json")==check_zero("parameters.json")==check_zero("protocols.json")
                 if check_zero_bool is True:
