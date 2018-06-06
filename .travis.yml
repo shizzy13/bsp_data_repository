@@ -3,6 +3,7 @@ python:
     - 2.7
 install: true
 before_script:
+    - chmod=+x travis_install_neuron.sh
     - SRC_DIR=$HOME/local/src
     - NRN_INSTALL_DIR=$HOME/local/nrn
     - ./.travis_install_neuron.sh ${SRC_DIR} ${NRN_INSTALL_DIR}
