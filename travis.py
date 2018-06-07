@@ -1,4 +1,4 @@
-import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp
+import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp, neuron
 print "Check 0: .json files in config are valid \n", \
 "Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder \n", \
 "Check 2: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
@@ -13,7 +13,8 @@ print "Check 0: .json files in config are valid \n", \
 "Check 11: All the folders have the same structure \n", \
 
 
-def check_zero(f):
+def validate_json_files(f):
+    """Check if .json files in 'config' folder are valid"""
     with open(f) as json_file:
         try:
             json_data = json.load(json_file)
@@ -24,40 +25,44 @@ def check_zero(f):
             print("    Is invalid json: %s" % error)
             return False
 
-def check_one(config_list):
-    check_one = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
-    if check_one == config_list:
+def files_present_in_config(config_list):
+    """Check if 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder"""
+    files_present_in_config = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
+    if files_present_in_config == config_list:
         print "Check 1: Pass!"
     else:
         print "Check 1: Fail!"
         print "    Files present in 'config' folder:"
         for i in range (0,len(config_list)):
             print "       ", config_list[i]
-    return check_one == config_list
+    return files_present_in_config == config_list
 
-def check_two(model_list):
-    check_two = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
-    if check_two == model_list:
+def files_present_in_model(model_list):
+    """Check if 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder"""
+    files_present_in_model = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
+    if files_present_in_model == model_list:
         print "Check 2: Pass!"
     else:
         print "Check 2: Fail!"
         print "    Files present in 'model' folder:"
         for i in range (0,len(model_list)):
             print "       ", model_list[i]
-    return check_two == model_list
+    return files_present_in_model == model_list
 
-def check_three(tools_list):
-    check_three = ['get_stats.py', 'task_stats.py']
-    if check_three == tools_list:
+def files_present_in_tools(tools_list):
+    """Check if 'get_stats.py', 'task_stats.py' files are present in 'tools' folder """
+    files_present_in_tools = ['get_stats.py', 'task_stats.py']
+    if files_present_in_tools == tools_list:
         print "Check 3: Pass!"
     else:
         print "Check 3: Fail!"
         print "    Files present in 'tools' folder:"
         for i in range (0,len(tools_list)):
             print "       ", tools_list[i]
-    return check_three == tools_list
+    return files_present_in_tools == tools_list
 
-def check_four (name):
+def one_file_present_in_morphology (name):
+    """Check if only 1 file is present in 'morphology' folder \n"""
     mfiles = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
     if name.__len__() == 1:
         print "Check 4: Pass!"
@@ -69,7 +74,8 @@ def check_four (name):
             print "       ", mfiles[i]
     return name.__len__() == 1
 
-def check_five (name,morph_data):
+def correct_filename_in_morphology (name,morph_data):
+    """Check if file in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder"""
     same_name = 0
     for n in name:
         if n == morph_data.values()[0]:
@@ -83,19 +89,22 @@ def check_five (name,morph_data):
     return same_name == 1
 
                 
-def check_six(jjson):
+def same_key_in_jsons(jjson):
+    """Get the key used in a .json file in the 'config' folder"""
     with open(jjson) as json_file:
         json_data = json.load(json_file)
     return json_data.keys()[0]
 
-def check_seven():
+def key_in_opt_neuron():
+    """Check if in 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'"""
     for line in open(os.path.join(optimizations, folder, folder, "opt_neuron.py")):
          if line.startswith('evaluator = model.evaluator.create'):
              start = "model.evaluator.create('"
              end = "', "
              return line[line.find(start)+len(start):line.rfind(end)]
 
-def check_eight(seed_list, seed_list_fail):
+def files_present_in_checkpoints(seed_list, seed_list_fail):
+    """Check if 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders."""
     hoc_list = []
     hoc_list_fail = []
     pkl_list = []
@@ -130,7 +139,8 @@ def check_eight(seed_list, seed_list_fail):
             print "        ", z
     return
 
-def check_nine(seed_list, seed_list_fail):
+def files_present_in_figures(seed_list, seed_list_fail):
+    """Check if 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders"""
     evolution_list = []
     evolution_list_fail = []
     objectives_list = []
@@ -176,7 +186,8 @@ def check_nine(seed_list, seed_list_fail):
             print "        ", z    
     return
 
-def check_ten():
+def same_name_files_are_copies():
+    """Check if all files with the same name in all 'mechanisms' folders are exact copies"""
     listkeys=[]
     for folder in os.listdir(optimizations):
         if (not re.match('README', folder)): #Avoid README file
@@ -209,7 +220,8 @@ def check_ten():
     return True
 
 
-def check_eleven (check_folder):
+def same_structure (check_folder):
+    """Check if all the folders have the same structure"""
     for folder in os.listdir(optimizations):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(optimizations, folder, folder, check_folder)):
@@ -219,7 +231,7 @@ def check_eleven (check_folder):
             else:
                 return True
 
-def unique_key(list1):
+def get_the_different_key(list1):
     unique_list = []
     repeat_list = []
     for x in list1:
@@ -237,21 +249,21 @@ optimizations = os.path.join(repository, "optimizations")
 for folder in os.listdir(optimizations):
     if (not re.match('README', folder)): #Avoid README file
         curr_folder = os.path.join(optimizations, folder)
-        for files in os.listdir(curr_folder):
+        """for files in os.listdir(curr_folder):
             if files.endswith('.zip'):
                 os.chdir(curr_folder)
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
 
 #Read .json file
         for files in os.listdir(curr_folder):
             if (files == folder):
                 print "\n\n", folder
                 os.chdir(os.path.join(optimizations, folder, folder, "config"))
-                check_zero_bool = check_zero("features.json") == check_zero("morph.json")==check_zero("parameters.json")==check_zero("protocols.json")
-                if check_zero_bool is True:
+                validate_json_files_bool = validate_json_files("features.json") == validate_json_files("morph.json")==validate_json_files("parameters.json")==validate_json_files("protocols.json")
+                if validate_json_files_bool is True:
                     print "Check 0: Pass!"
 
                 with open("morph.json") as json_file:
@@ -260,47 +272,47 @@ for folder in os.listdir(optimizations):
 #Open file in morphology with name json_data[char]
                 name = os.listdir(os.path.join(optimizations, folder, folder, "morphology"))
                 config_list = os.listdir(os.path.join(optimizations, folder, folder, "config"))
-                check_one_boolean = check_one(config_list)
+                files_present_in_config_boolean = files_present_in_config(config_list)
                 model_list = os.listdir(os.path.join(optimizations, folder, folder, "model"))
-                check_two(model_list)
+                files_present_in_model(model_list)
                 tools_list = os.listdir(os.path.join(optimizations, folder, folder, "tools"))
-                check_three(tools_list)
-                check_four(name)
-                if check_zero_bool is True:
-                    check_five(name,morph_data)
+                files_present_in_tools(tools_list)
+                one_file_present_in_morphology(name)
+                if validate_json_files_bool is True:
+                    correct_filename_in_morphology(name,morph_data)
                 else:
                     print "Check 5: Cannot run because Check 0 failed."
-                if check_zero_bool is False:
+                if validate_json_files_bool is False:
                     print "Check 6: Cannot run because Check 0 failed."
                     print "Check 7: Cannot run because Check 0 failed."
-                elif check_one_boolean is False:
+                elif files_present_in_config_boolean is False:
                     print "Check 6: Cannot run because Check 1 failed."
                     print "Check 7: Cannot run because Check 1 failed."
                 else:    
-                    check_six_keys = [check_six("morph.json"), check_six("features.json"), check_six("parameters.json"),check_six("protocols.json")]
-                    check_six_boolean = (check_six("morph.json") == check_six("features.json") == check_six("parameters.json") == check_six("protocols.json"))
-                    if check_six_boolean is False:
+                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
+                    same_key_in_jsons_boolean = (same_key_in_jsons("morph.json") == same_key_in_jsons("features.json") == same_key_in_jsons("parameters.json") == same_key_in_jsons("protocols.json"))
+                    if same_key_in_jsons_boolean is False:
                         print "Check 6: Fail!"
-                        print "    The key '",unique_key(check_six_keys),"' in the file:" 
-                        if unique_key(check_six_keys) == check_six("morph.json"):
+                        print "    The key '",get_the_different_key(same_key_in_jsons_keys),"' in the file:" 
+                        if get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("morph.json"):
                             print "    'morph.json' does not match the keys in the other files"
-                        elif unique_key(check_six_keys) == check_six("features.json"):
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("features.json"):
                             print "   'features.json' does not match the keys in the other files"
-                        elif unique_key(check_six_keys) == check_six("parameters.json"):
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("parameters.json"):
                              print "    'parameters.json' does not match the keys in the other files"
-                        elif unique_key(check_six_keys) == check_six("protocols.json"):
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("protocols.json"):
                             print "    'protocols.json' does not match the keys in the other files"
                     else:    
                         print "Check 6: Pass!"
 
                         os.chdir(os.path.join('..','..','..'))
-                        if check_seven() == check_six_keys[0]:
+                        if key_in_opt_neuron() == same_key_in_jsons_keys[0]:
                             print "Check 7: Pass!"
                         else:
                             print "Check 7: Fail!"
-                            print "    The key in the .json files in 'config' is:", check_six_keys[0]
-                            print "    The key in 'opt_neuron.py' file, line 75 is:", check_seven()
-                    if check_six_boolean is False:
+                            print "    The key in the .json files in 'config' is:", same_key_in_jsons_keys[0]
+                            print "    The key in 'opt_neuron.py' file, line 75 is:", key_in_opt_neuron()
+                    if same_key_in_jsons_boolean is False:
                         print "Check 7: Cannot run because Check 6 failed."
                 seed_list = []
                 seed_list_fail = []
@@ -310,11 +322,19 @@ for folder in os.listdir(optimizations):
                         end = "_0"
                         seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                         seed_list_fail.append(x)    
-                check_eight(seed_list, seed_list_fail)
-                check_nine(seed_list, seed_list_fail)
-                    
+                files_present_in_checkpoints(seed_list, seed_list_fail)
+                files_present_in_figures(seed_list, seed_list_fail)
+                
+                   
     
-check_ten()
-check_eleven_bool = (check_eleven("checkpoints") == check_eleven("config") == check_eleven("figures") == check_eleven("mechanisms") == check_eleven("model") == check_eleven("morphology") == check_eleven("tools"))
-if check_eleven_bool is True:
+same_name_files_are_copies()
+same_structure_bool = (same_structure("checkpoints") == same_structure("config") == same_structure("figures") == same_structure("mechanisms") == same_structure("model") == same_structure("morphology") == same_structure("tools"))
+if same_structure_bool is True:
     print "\nCheck 11: Pass!"
+
+
+os.chdir(os.path.join(optimizations, "CA1_int_bAC_011127HP1_20180120115056", "CA1_int_bAC_011127HP1_20180120115056", "checkpoints"))
+
+from neuron import h
+"""h.load_file('test.hoc')"""
+print h.load_file('test.hoc')
