@@ -1,4 +1,4 @@
-import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp, neuron
+import os, sys, re, json, zipfile, filecmp, getopt, os.path,  filecmp
 print "Check 0: .json files in config are valid \n", \
 "Check 1: 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder \n", \
 "Check 2: 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder \n", \
@@ -313,6 +313,3 @@ same_structure_bool = (same_structure("checkpoints") == same_structure("config")
 
 os.chdir(os.path.join(optimizations, "CA1_int_bAC_011127HP1_20180120115056", "CA1_int_bAC_011127HP1_20180120115056", "checkpoints"))
 
-from neuron import h
-"""h.load_file('test.hoc')"""
-print h.load_file('test.hoc')
