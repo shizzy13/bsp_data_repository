@@ -180,7 +180,7 @@ def files_present_in_figures(seed_list, seed_list_fail, folder):
             print "        ", z    
     return
 
-def same_name_files_are_copies(folder):
+def same_name_files_are_copies():
     """Check if all files with the same name in all 'mechanisms' folders are exact copies"""
     listkeys=[]
     for folder in os.listdir(optimizations):
@@ -317,7 +317,7 @@ for folder in os.listdir(optimizations):
                 
                    
     
-same_name_files_are_copies(folder)
+same_name_files_are_copies()
 same_structure_bool = (same_structure("checkpoints") == same_structure("config") == same_structure("figures") == same_structure("mechanisms") == same_structure("model") == same_structure("morphology") == same_structure("tools"))
 
 
