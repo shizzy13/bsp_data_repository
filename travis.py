@@ -201,7 +201,6 @@ def same_name_files_are_copies():
             if not filecmp.cmp(os.path.join(optimizations, foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
                                os.path.join(optimizations, foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
                 if print_fail_once==1:
-                    print "\n\n", folder
                     print "Check 10: Fail!"
                     print_fail_once+=1
                 print "    ", "File:", listkeys[i], "is not the same in \n",\
