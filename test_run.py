@@ -230,19 +230,19 @@ def same_name_files_are_copies():
 def test_same_structure():
     full_failure_list = []
     if same_structure("checkpoints") != []:
-        full_failure_list.append(same_structure("checkpoints"))
+        full_failure_list.append("fail")
     if same_structure("config") != []:
-        full_failure_list.append(same_structure("config"))
+        full_failure_list.append("fail")
     if same_structure("figures") != []:
-        full_failure_list.append(same_structure("figures"))
+        full_failure_list.append("fail")
     if same_structure("mechanisms") != []:
-        full_failure_list.append(same_structure("mechanisms"))
+        full_failure_list.append("fail")
     if same_structure("model") != []:
-        full_failure_list.append(same_structure("model"))
+        full_failure_list.append("fail")
     if same_structure("morphology") != []:
-        full_failure_list.append(same_structure("morphology"))
+        full_failure_list.append("fail")
     if same_structure("tools") != []:
-        full_failure_list.append(same_structure("tools"))
+        full_failure_list.append("fail")
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -256,13 +256,13 @@ def test_validate_json_files():
                     validate_json_files_bool = validate_json_files("features.json", folder) == validate_json_files("morph.json", folder)==\
                                                validate_json_files("parameters.json", folder)==validate_json_files("protocols.json", folder)
                     if validate_json_files("features.json", folder) != []:
-                        full_failure_list.append(validate_json_files("features.json", folder))
+                        full_failure_list.append("fail")
                     if validate_json_files("morph.json", folder) != []:
-                        full_failure_list.append(dvalidate_json_files("morph.json", folder))
+                        full_failure_list.append("fail")
                     if validate_json_files("parameters.json", folder) != []:
-                        full_failure_list.append(validate_json_files("parameters.json", folder))
+                        full_failure_list.append("fail")
                     if validate_json_files("protocols.json", folder) != []:
-                        full_failure_list.append(validate_json_files("protocols.json", folder))
+                        full_failure_list.append("fail")
     assert full_failure_list == []
 
 
@@ -275,7 +275,7 @@ def test_files_present_in_config():
                 if (files == folder):
                     config_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "config"))
                     if files_present_in_config(config_list, folder) != []:
-                        full_failure_list.append(files_present_in_config(config_list, folder))
+                        full_failure_list.append("fail")
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -287,7 +287,7 @@ def test_files_present_in_model():
                 if (files == folder):    
                     model_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "model"))
                     if files_present_in_model(model_list, folder) != []:
-                        full_failure_list.append(files_present_in_model(model_list, folder))
+                        full_failure_list.append("fail")
     assert full_failure_list == []
     
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -299,7 +299,7 @@ def test_files_present_in_tools():
                 if (files == folder):    
                     tools_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "tools"))
                     if files_present_in_tools(tools_list, folder) != []:
-                        full_failure_list.append(files_present_in_tools(tools_list, folder))
+                        full_failure_list.append("fail")
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -311,7 +311,7 @@ def test_one_file_present_in_morphology():
                 if (files == folder):
                     morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
                     if one_file_present_in_morphology(morphology_list, folder) != []:
-                        full_failure_list.append(one_file_present_in_morphology(morphology_list, folder))
+                        full_failure_list.append("fail")
             assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_one_file_present_in_morphology"])
@@ -326,7 +326,7 @@ def test_correct_filename_in_morphology():
                         morph_data = json.load(json_file)
                         morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
                     if correct_filename_in_morphology(morphology_list, morph_data, folder) != []:
-                        full_failure_list.append(correct_filename_in_morphology(morphology_list, morph_data, folder))                   
+                        full_failure_list.append("fail")                   
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config"])
@@ -344,18 +344,18 @@ def test_same_key_in_jsons():
                                                  same_key_in_jsons("parameters.json") == \
                                                  same_key_in_jsons("protocols.json"))
                     if same_key_in_jsons_boolean is False:
-                        full_failure_list.append(folder)
-                        full_failure_list.append("The key '")
-                        full_failure_list.append(get_the_different_key(same_key_in_jsons_keys))
-                        full_failure_list.append("' in the file:")
+                        full_failure_list.append("fail")
+                        print "\n\n", folder
+                        print "Failed! The same key is used in all .json files in 'config' folder"
+                        print "    The key '",get_the_different_key(same_key_in_jsons_keys),"' in the file:" 
                         if get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("morph.json"):
-                            full_failure_list.append("'morph.json' does not match the keys in the other files")
+                            print "    'morph.json' does not match the keys in the other files"
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("features.json"):
-                            full_failure_list.append("'features.json' does not match the keys in the other files")
+                            print "   'features.json' does not match the keys in the other files"
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("parameters.json"):
-                             full_failure_list.append("'parameters.json' does not match the keys in the other files")
-                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("prococols.json"):
-                            full_failure_list.append("'protocols.json' does not match the keys in the other files")
+                             print "    'parameters.json' does not match the keys in the other files"
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("protocols.json"):
+                            print "    'protocols.json' does not match the keys in the other files"
     assert full_failure_list == [] 
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config, test_same_key_in_jsons"])
