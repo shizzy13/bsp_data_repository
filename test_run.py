@@ -1,5 +1,16 @@
 import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest
 
+def same_structure (check_folder):
+    """Check if all the folders have the same structure"""
+    failure_list=[]
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            if not os.path.isdir(os.path.join(repository, "optimizations", folder, folder, check_folder)):
+                failure_list.append(check_folder)
+                failure_list.append("folder does not exist in directory:")
+                failure_list.append(folder)
+        return failure_list
+    
 def validate_json_files(f, folder):
     """Check if .json files in 'config' folder are valid"""
     failure_list = []
@@ -122,27 +133,104 @@ def files_present_in_checkpoints(seed_list, seed_list_fail, folder):
             failure_list.append(z)
     return failure_list
 
-def test_files_present_in_checkpoints():
-    full_failure_list = []
+def files_present_in_figures(seed_list, seed_list_fail, folder):
+    """Check if 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files with the same count and name as the seed folders"""
+    failure_list = []
+    evolution_list = []
+    evolution_list_fail = []
+    objectives_list = []
+    objectives_list_fail = []
+    responses_list = []
+    responses_list_fail = []
+    
+    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder, "figures")):
+        if 'evolution' in x:
+            start = "neuron_evolution_"
+            end = ".pdf"
+            evolution_list.append(x[x.find(start)+len(start):x.rfind(end)])
+            evolution_list_fail.append(x)
+    for y in os.listdir(os.path.join(repository, "optimizations", folder, folder, "figures")):
+        if 'objectives' in y:
+            start = "neuron_objectives_"
+            end = ".pdf"
+            objectives_list.append(y[y.find(start)+len(start):y.rfind(end)])
+            objectives_list_fail.append(y)
+
+    for z in os.listdir(os.path.join(repository, "optimizations", folder, folder, "figures")):
+        if 'responses' in z:
+            start = "neuron_responses_"
+            end = ".pdf"
+            responses_list.append(z[z.find(start)+len(start):z.rfind(end)])
+            responses_list_fail.append(z)
+
+    if not seed_list == evolution_list == objectives_list == responses_list:
+        failure_list.append(folder)
+        failure_list.append("'r_seed' folders:")
+        for q in seed_list_fail:
+            failure_list.append(q)
+        failure_list.append("'evolution' files:")
+        for x in evolution_list_fail:
+            failure_list.append(x)
+        failure_list.append("'objectives' files:")
+        for y in objectives_list_fail:
+            failure_list.append(y)
+        failure_list.append("'responses' files:")
+        for z in responses_list_fail:
+            failure_list.append(z)   
+    return failure_list
+
+def same_name_files_are_copies():
+    """Check if all files with the same name in all 'mechanisms' folders are exact copies"""
+    failure_list=[]
+    listkeys=[]
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
-            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
-                if (files == folder):
-                    seed_list = []
-                    seed_list_fail = []
-                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
-                        if (x.startswith('r_seed')):
-                            start = "r_"
-                            end = "_0"
-                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
-                            seed_list_fail.append(x)    
-                    if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
-                        full_failure_list.append(files_present_in_checkpoints(seed_list, seed_list_fail, folder))
-        for failure in full_failure_list:
-            print failure, "\n"
-    assert full_failure_list == []
+            for f in os.listdir(os.path.join(repository, "optimizations", folder, folder, "mechanisms")):
+                if f not in listkeys:
+                    listkeys.append(f)
+    d=dict((el,[]) for el in listkeys)
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for f in os.listdir(os.path.join(repository, "optimizations", folder, folder, "mechanisms")):
+                d[f].append(folder)
+    print_fail_once=1
+    for i in range(len(listkeys)):
+        foldersofthekey=d.get(listkeys[i])
+        for j in range(1,len(foldersofthekey)):
+            if not filecmp.cmp(os.path.join(repository, "optimizations", foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
+                               os.path.join(repository, "optimizations", foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
+                if print_fail_once==1:
+                    failure_list.append("Failed! Check if all files with the same name in all 'mechanisms' folders are exact copies")
+                    print_fail_once+=1
+                failure_list.append("File:")
+                failure_list.append(listkeys[i])
+                failure_list.append("is not the same in")
+                failure_list.append(foldersofthekey[0])
+                failure_list.append("and")
+                failure_list.append(foldersofthekey[j])
+    return failure_list
                     
 """Test functions"""
+
+def test_same_structure():
+    full_failure_list = []
+    if same_structure("checkpoints") != []:
+        full_failure_list.append(same_structure("checkpoints"))
+    if same_structure("config") != []:
+        full_failure_list.append(same_structure("config"))
+    if same_structure("figures") != []:
+        full_failure_list.append(same_structure("figures"))
+    if same_structure("mechanisms") != []:
+        full_failure_list.append(same_structure("mechanisms"))
+    if same_structure("model") != []:
+        full_failure_list.append(same_structure("model"))
+    if same_structure("morphology") != []:
+        full_failure_list.append(same_structure("morphology"))
+    if same_structure("tools") != []:
+        full_failure_list.append(same_structure("tools"))
+    for failure in full_failure_list:
+        print failure, "\n"
+    assert full_failure_list == []
 
 def test_validate_json_files():
     full_failure_list = []
@@ -156,7 +244,7 @@ def test_validate_json_files():
                     if validate_json_files("features.json", folder) != []:
                         full_failure_list.append(validate_json_files("features.json", folder))
                     if validate_json_files("morph.json", folder) != []:
-                        full_failure_list.appen(dvalidate_json_files("morph.json", folder))
+                        full_failure_list.append(dvalidate_json_files("morph.json", folder))
                     if validate_json_files("parameters.json", folder) != []:
                         full_failure_list.append(validate_json_files("parameters.json", folder))
                     if validate_json_files("protocols.json", folder) != []:
@@ -276,6 +364,52 @@ def test_key_in_opt_neuron():
                         full_failure_list.append(same_key_in_jsons_keys[0])
                         full_failure_list.append("The key in 'opt_neuron.py' file, line 75 is:")
                         full_failure_list.append(key_in_opt_neuron(folder))
+
+def test_files_present_in_checkpoints():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    seed_list = []
+                    seed_list_fail = []
+                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
+                        if (x.startswith('r_seed')):
+                            start = "r_"
+                            end = "_0"
+                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                            seed_list_fail.append(x)    
+                    if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
+                        full_failure_list.append(files_present_in_checkpoints(seed_list, seed_list_fail, folder))
+        for failure in full_failure_list:
+            print failure, "\n"
+    assert full_failure_list == []
+
+def test_files_present_in_figures():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    seed_list = []
+                    seed_list_fail = []
+                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
+                        if (x.startswith('r_seed')):
+                            start = "r_"
+                            end = "_0"
+                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                            seed_list_fail.append(x)    
+                    if files_present_in_figures(seed_list, seed_list_fail, folder) != []:
+                        full_failure_list.append(files_present_in_figures(seed_list, seed_list_fail, folder))
+        for failure in full_failure_list:
+            print failure, "\n"
+    assert full_failure_list == []
+
+
+def test_same_name_files_are_copies():
+#    print same_name_files_are_copies(), "\n"
+    assert  same_name_files_are_copies() == []
+
 
 def get_the_different_key(list1):
     unique_list = []
