@@ -8,7 +8,7 @@ def same_structure (check_folder):
             if not os.path.isdir(os.path.join(repository, "optimizations", folder, folder, check_folder)):
                 failure_list.append("fail")
                 print "\n\n", folder
-                print "\nFailed! Check: All the folders have the same structure"
+                print "\nFailed! All the folders have the same structure"
                 print "    ", check_folder, "folder does not exist in directory:", folder
         return failure_list
     
@@ -22,7 +22,7 @@ def validate_json_files(f, folder):
         except ValueError as error:
             failure_list.append("fail")
             print "\n\n", folder
-            print "Failed! Check: .json files in 'config' folder are valid"
+            print "Failed! All .json files in 'config' folder are valid"
             print "    ", f
             print("    Is an invalid json: %s" % error)
             return failure_list
@@ -34,7 +34,7 @@ def files_present_in_config(config_list, folder):
     if files_present_in_config != config_list:
         failure_list.append ("fail")
         print "\n\n", folder
-        print "Failed! Check: Fail!"
+        print "Failed! 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder"
         print "    Files present in 'config' folder:"
         for i in range (0,len(config_list)):
             print "       ", config_list[i]
@@ -45,33 +45,38 @@ def files_present_in_model(model_list, folder):
     files_present_in_model = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
     failure_list = []
     if files_present_in_model != model_list:
-        failure_list.append (folder)
-        failure_list.append ("Files present in 'model' folder:")
+        failure_list.append ("fail")
+        print "\n\n", folder
+        print "Failed! 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder"
+        print "    Files present in 'model' folder:"
         for i in range (0,len(model_list)):
-            failure_list.append (model_list[i])
+            print "       ", model_list[i]
     return failure_list
 
 def files_present_in_tools(tools_list, folder):
-    """Check if 'get_stats.py', 'task_stats.py' files are present in 'tools' folder """
+    """Check if 'get_stats.py', 'task_stats.py' files are present in 'tools' folder"""
     files_present_in_tools = ['get_stats.py', 'task_stats.py']
     failure_list = []
     if files_present_in_tools != tools_list:
-        failure_list.append (folder)
-        failure_list.append ("Files present in 'tools' folder:")
+        failure_list.append ("fail")
+        print "\n\n", folder
+        print "Failed! 'get_stats.py', 'task_stats.py' files are present in 'tools' folder"
+        print "    Files present in 'tools' folder:"
         for i in range (0,len(tools_list)):
-            failure_list.append (tools_list[i])
+            print "       ", tools_list[i]
     return failure_list
 
 def one_file_present_in_morphology (morphology_list, folder):
     """Check if only 1 file is present in 'morphology' folder \n"""
     failure_list = []
     if morphology_list.__len__() != 1:
-        failure_list.append(folder)
-        failure_list.append("Number of files present in 'morphology' folder:")
-        failure_list.append(morphology_list.__len__())
-        failure_list.append("Files in 'morphology' folder:")
-        for i in range (0,len(morphology_list)):
-            failure_list.append(morphology_list[i])
+        failure_list.append ("fail")
+        print "\n\n", folder
+        print "Failed! Only 1 file is present in 'morphology' folder"
+        print "    Number of files present in 'morphology' folder:", name.__len__()
+        print "    Files in 'morphology' folder:"
+        for i in range (0,len(name)):
+            print "       ", name[i]
     return failure_list
 
 def correct_filename_in_morphology (morphology_list, morph_data, folder):
@@ -82,11 +87,11 @@ def correct_filename_in_morphology (morphology_list, morph_data, folder):
         if file_name == morph_data.values()[0]:
             same_name += 1
     if same_name != 1:
-        failure_list.append(folder)
-        failure_list.append("Name of file in 'morphology' folder:")
-        failure_list.append(file_name)
-        failure_list.append("Value of the key in morph.json file:")
-        failure_list.append(morph_data.values()[0])
+        failure_list.append("fail")
+        print "\n\n", folder
+        print "Failed! File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder"
+        print "    Name of file in 'morphology' folder:", n
+        print "    Value of the key in morph.json file:", morph_data.values()[0]
     return failure_list
 
 def same_key_in_jsons(jjson):
@@ -126,16 +131,18 @@ def files_present_in_checkpoints(seed_list, seed_list_fail, folder):
             pkl_list_fail.append(z)
 
     if not seed_list == hoc_list == pkl_list:
-        failure_list.append(folder)  
-        failure_list.append("'r_seed' folders:")
+        failure_list.append("fail")  
+        print "\n\n", folder  
+        print "Failed! 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders"
+        print "    'r_seed' folders:"
         for x in seed_list_fail:
-            failure_list.append(x)
-        failure_list.append("'.hoc' files:")
+            print "        ", x
+        print "    '.hoc' files:"
         for y in hoc_list_fail:
-            failure_list.append(y)
-        failure_list.append("'.pkl' files:")
+            print "        ", y
+        print "    '.pkl' files:"
         for z in pkl_list_fail:
-            failure_list.append(z)
+            print "        ", z
     return failure_list
 
 def files_present_in_figures(seed_list, seed_list_fail, folder):
@@ -169,23 +176,9 @@ def files_present_in_figures(seed_list, seed_list_fail, folder):
             responses_list_fail.append(z)
 
     if not seed_list == evolution_list == objectives_list == responses_list:
-        failure_list.append(folder)
-        failure_list.append("'r_seed' folders:")
-        for q in seed_list_fail:
-            failure_list.append(q)
-        failure_list.append("'evolution' files:")
-        for x in evolution_list_fail:
-            failure_list.append(x)
-        failure_list.append("'objectives' files:")
-        for y in objectives_list_fail:
-            failure_list.append(y)
-        failure_list.append("'responses' files:")
-        for z in responses_list_fail:
-            failure_list.append(z)
-
-    if not seed_list == evolution_list == objectives_list == responses_list:
+        failure_list.append("fail")
         print "\n\n", folder
-        print "Check 9: Fail!"
+        print "Failed! 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files (with proper names) as the seed folders"
         print "    'r_seed' folders:"
         for q in seed_list_fail:
             print "        ", q
@@ -197,8 +190,7 @@ def files_present_in_figures(seed_list, seed_list_fail, folder):
             print "        ", y
         print "    'responses' files:"
         for z in responses_list_fail:
-            print "        ", z
-            
+            print "        ", z    
     return failure_list
 
 def same_name_files_are_copies():
@@ -222,14 +214,14 @@ def same_name_files_are_copies():
             if not filecmp.cmp(os.path.join(repository, "optimizations", foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
                                os.path.join(repository, "optimizations", foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
                 if print_fail_once==1:
-                    failure_list.append("Failed! Check if all files with the same name in all 'mechanisms' folders are exact copies")
+                    failure_list.append("fail")
                     print_fail_once+=1
-                failure_list.append("File:")
-                failure_list.append(listkeys[i])
-                failure_list.append("is not the same in")
-                failure_list.append(foldersofthekey[0])
-                failure_list.append("and")
-                failure_list.append(foldersofthekey[j])
+                    print "\nFailed! All files with the same name in all 'mechanisms' folders are exact copies"
+                    print_fail_once+=1
+                print "    ", "File:", listkeys[i], "is not the same in \n",\
+                      "    ", foldersofthekey[0],\
+                      "    ", "\n     and\n",\
+                      "    ", foldersofthekey[j], "\n"
     return failure_list
                     
 """Test functions"""
@@ -271,8 +263,6 @@ def test_validate_json_files():
                         full_failure_list.append(validate_json_files("parameters.json", folder))
                     if validate_json_files("protocols.json", folder) != []:
                         full_failure_list.append(validate_json_files("protocols.json", folder))
-    for failure in full_failure_list:
-        print failure, "\n"
     assert full_failure_list == []
 
 
@@ -286,8 +276,6 @@ def test_files_present_in_config():
                     config_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "config"))
                     if files_present_in_config(config_list, folder) != []:
                         full_failure_list.append(files_present_in_config(config_list, folder))
-        for failure in full_failure_list:
-            print failure, "\n"
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -300,8 +288,6 @@ def test_files_present_in_model():
                     model_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "model"))
                     if files_present_in_model(model_list, folder) != []:
                         full_failure_list.append(files_present_in_model(model_list, folder))
-        for failure in full_failure_list:
-            print failure, "\n"
     assert full_failure_list == []
     
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -314,8 +300,6 @@ def test_files_present_in_tools():
                     tools_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "tools"))
                     if files_present_in_tools(tools_list, folder) != []:
                         full_failure_list.append(files_present_in_tools(tools_list, folder))
-        for failure in full_failure_list:
-            print failure, "\n"
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -343,8 +327,6 @@ def test_correct_filename_in_morphology():
                         morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
                     if correct_filename_in_morphology(morphology_list, morph_data, folder) != []:
                         full_failure_list.append(correct_filename_in_morphology(morphology_list, morph_data, folder))                   
-        for failure in full_failure_list:
-            print failure, "\n"
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config"])
@@ -374,6 +356,7 @@ def test_same_key_in_jsons():
                              full_failure_list.append("'parameters.json' does not match the keys in the other files")
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("prococols.json"):
                             full_failure_list.append("'protocols.json' does not match the keys in the other files")
+    assert full_failure_list == [] 
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config, test_same_key_in_jsons"])
 def test_key_in_opt_neuron():
@@ -387,12 +370,12 @@ def test_key_in_opt_neuron():
                                                   same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
                     os.chdir(os.path.join('..','..','..'))
                     if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
-                        full_failure_list.append(folder)
-                        full_failure_list.append("The key in the .json files in 'config' is:")
-                        full_failure_list.append(same_key_in_jsons_keys[0])
-                        full_failure_list.append("The key in 'opt_neuron.py' file, line 75 is:")
-                        full_failure_list.append(key_in_opt_neuron(folder))
-
+                        full_failure_list.append("fail")
+                        print "\n\n", folder
+                        print "Failed! In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'!"
+                        print "    The key in the .json files in 'config' is:", same_key_in_jsons_keys[0]
+                        print "    The key in 'opt_neuron.py' file, line 75 is:", key_in_opt_neuron()
+    assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_checkpoints():
@@ -410,9 +393,7 @@ def test_files_present_in_checkpoints():
                             seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                             seed_list_fail.append(x)    
                     if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
-                        full_failure_list.append(files_present_in_checkpoints(seed_list, seed_list_fail, folder))
-    for failure in full_failure_list:
-         print failure, "\n"
+                        full_failure_list.append("fail")
     assert full_failure_list == []
 
 
@@ -432,14 +413,11 @@ def test_files_present_in_figures():
                             seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                             seed_list_fail.append(x)    
                     if files_present_in_figures(seed_list, seed_list_fail, folder) != []:
-                        full_failure_list.append(files_present_in_figures(seed_list, seed_list_fail, folder))
-    for failure in full_failure_list:
-        print failure, "\n"
+                        full_failure_list.append("fail")
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
 def test_same_name_files_are_copies():
-#    print same_name_files_are_copies(), "\n"
     assert  same_name_files_are_copies() == []
 
 
