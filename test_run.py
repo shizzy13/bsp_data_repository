@@ -204,7 +204,7 @@ def test_correct_filename_in_morphology():
                             print "    'protocols.json' does not match the keys in the other files"""
 
 
-"""repository = os.path.dirname(os.path.abspath(__file__))
+repository = os.path.dirname(os.path.abspath(__file__))
 for folder in os.listdir(os.path.join(repository, "optimizations")):
     if (not re.match('README', folder)): #Avoid README file
         for files in os.listdir(os.path.join(repository, "optimizations", folder)):
@@ -213,4 +213,4 @@ for folder in os.listdir(os.path.join(repository, "optimizations")):
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))"""
+                os.chdir(os.path.join('..','..'))
