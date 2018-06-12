@@ -389,9 +389,9 @@ def test_files_present_in_checkpoints():
                             seed_list_fail.append(x)    
                     if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
                         full_failure_list.append(files_present_in_checkpoints(seed_list, seed_list_fail, folder))
-            for failure in full_failure_list:
-                print failure, "\n"
-    assert full_failure_list == []
+                for failure in full_failure_list:
+                    print failure, "\n"
+            assert full_failure_list == []
 
 
 #if same_structure (check_folder)
@@ -411,8 +411,8 @@ def test_files_present_in_figures():
                             seed_list_fail.append(x)    
                     if files_present_in_figures(seed_list, seed_list_fail, folder) != []:
                         full_failure_list.append(files_present_in_figures(seed_list, seed_list_fail, folder))
-            for failure in full_failure_list:
-                print failure, "\n"
+                for failure in full_failure_list:
+                    print failure, "\n"
     assert full_failure_list == []
 
 #if same_structure (check_folder)
