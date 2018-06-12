@@ -73,17 +73,39 @@ def correct_filename_in_morphology (morphology_list, morph_data, folder):
         failure_list.append(morph_data.values()[0])
     return failure_list
 
-"""def same_key_in_jsons(jjson):
-    Get the key used in a .json file in the 'config' folder
+def same_key_in_jsons(jjson):
+    """Get the key used in a .json file in the 'config' folder"""
     with open(jjson) as json_file:
         json_data = json.load(json_file)
-    return json_data.keys()[0]"""
+    return json_data.keys()[0]
 
+def key_in_opt_neuron(folder):
+    """Check if in 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'"""
+    for line in open(os.path.join(repository, "optimizations", folder, folder, "opt_neuron.py")):
+         if line.startswith('evaluator = model.evaluator.create'):
+             start = "model.evaluator.create('"
+             end = "', "
+             return line[line.find(start)+len(start):line.rfind(end)]
 
+def test_key_in_opt_neuron():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), \
+                                                  same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
+                    os.chdir(os.path.join('..','..','..'))
+                    if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
+                        full_failure_list.append(folder)
+                        full_failure_list.append("The key in the .json files in 'config' is:")
+                        full_failure_list.append(same_key_in_jsons_keys[0])
+                        full_failure_list.append("The key in 'opt_neuron.py' file, line 75 is:")
+                        full_failure_list.append(key_in_opt_neuron(folder))
 """Test functions"""
 
 def test_validate_json_files():
-    repository = os.path.dirname(os.path.abspath(__file__))
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -105,7 +127,6 @@ def test_validate_json_files():
     assert full_failure_list == []
 
 def test_files_present_in_config():
-    repository = os.path.dirname(os.path.abspath(__file__))
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -119,7 +140,6 @@ def test_files_present_in_config():
     assert full_failure_list == []
 
 def test_files_present_in_model():
-    repository = os.path.dirname(os.path.abspath(__file__))
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -133,7 +153,6 @@ def test_files_present_in_model():
     assert full_failure_list == []
     
 def test_files_present_in_tools():
-    repository = os.path.dirname(os.path.abspath(__file__))
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -148,7 +167,6 @@ def test_files_present_in_tools():
 
 def test_one_file_present_in_morphology():
     full_failure_list = []
-    repository = os.path.dirname(os.path.abspath(__file__))
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
@@ -160,7 +178,6 @@ def test_one_file_present_in_morphology():
 
 #if check 1 passes
 def test_correct_filename_in_morphology():
-    repository = os.path.dirname(os.path.abspath(__file__))
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -177,8 +194,7 @@ def test_correct_filename_in_morphology():
     assert full_failure_list == []
 
 
-"""def test_same_key_in_jsons():
-    repository = os.path.dirname(os.path.abspath(__file__))
+def test_same_key_in_jsons():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
@@ -193,19 +209,32 @@ def test_correct_filename_in_morphology():
                                                  same_key_in_jsons("protocols.json"))
                     if same_key_in_jsons_boolean is False:
                         full_failure_list.append(folder)
-                        full_failure_list.append("The key '", get_the_different_key(same_key_in_jsons_keys),"' in the file:") 
+                        full_failure_list.append("The key '")
+                        full_failure_list.append(get_the_different_key(same_key_in_jsons_keys))
+                        full_failure_list.append("' in the file:")
                         if get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("morph.json"):
-                            print "    'morph.json' does not match the keys in the other files"
+                            full_failure_list.append("'morph.json' does not match the keys in the other files")
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("features.json"):
-                            print "   'features.json' does not match the keys in the other files"
+                            full_failure_list.append("'features.json' does not match the keys in the other files")
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("parameters.json"):
-                             print "    'parameters.json' does not match the keys in the other files"
-                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("protocols.json"):
-                            print "    'protocols.json' does not match the keys in the other files"""
+                             full_failure_list.append("'parameters.json' does not match the keys in the other files")
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("prococols.json"):
+                            full_failure_list.append("'protocols.json' does not match the keys in the other files")
 
+def get_the_different_key(list1):
+    unique_list = []
+    repeat_list = []
+    for x in list1:
+        if x not in unique_list:
+            unique_list.append(x)
+        else:
+            repeat_list.append(x)
+    for x in unique_list:
+        if x not in repeat_list:
+            return x
 
 repository = os.path.dirname(os.path.abspath(__file__))
-for folder in os.listdir(os.path.join(repository, "optimizations")):
+"""for folder in os.listdir(os.path.join(repository, "optimizations")):
     if (not re.match('README', folder)): #Avoid README file
         for files in os.listdir(os.path.join(repository, "optimizations", folder)):
             if files.endswith('.zip'):
@@ -213,4 +242,4 @@ for folder in os.listdir(os.path.join(repository, "optimizations")):
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))
+                os.chdir(os.path.join('..','..'))"""
