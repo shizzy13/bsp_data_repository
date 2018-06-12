@@ -87,22 +87,61 @@ def key_in_opt_neuron(folder):
              end = "', "
              return line[line.find(start)+len(start):line.rfind(end)]
 
-def test_key_in_opt_neuron():
+def files_present_in_checkpoints(seed_list, seed_list_fail, folder):
+    """Check if 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders."""
+    failure_list = []
+    hoc_list = []
+    hoc_list_fail = []
+    pkl_list = []
+    pkl_list_fail = []
+
+    for y in os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints")):
+        if '.hoc' in y:
+            start = "cell_"
+            end = "_0.hoc"
+            hoc_list.append(y[y.find(start)+len(start):y.rfind(end)])
+            hoc_list_fail.append(y)
+
+    for z in os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints")):
+        if '.pkl' in z:
+            start = ""
+            end = ".pkl"
+            pkl_list.append(z[z.find(start)+len(start):z.rfind(end)])
+            pkl_list_fail.append(z)
+
+    if not seed_list == hoc_list == pkl_list:
+        failure_list.append(folder)  
+        failure_list.append("'r_seed' folders:")
+        for x in seed_list_fail:
+            failure_list.append(x)
+        failure_list.append("'.hoc' files:")
+        for y in hoc_list_fail:
+            failure_list.append(y)
+        failure_list.append("'.pkl' files:")
+        for z in pkl_list_fail:
+            failure_list.append(z)
+    return failure_list
+
+def test_files_present_in_checkpoints():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
-                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), \
-                                                  same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
-                    os.chdir(os.path.join('..','..','..'))
-                    if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
-                        full_failure_list.append(folder)
-                        full_failure_list.append("The key in the .json files in 'config' is:")
-                        full_failure_list.append(same_key_in_jsons_keys[0])
-                        full_failure_list.append("The key in 'opt_neuron.py' file, line 75 is:")
-                        full_failure_list.append(key_in_opt_neuron(folder))
+                    seed_list = []
+                    seed_list_fail = []
+                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
+                        if (x.startswith('r_seed')):
+                            start = "r_"
+                            end = "_0"
+                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                            seed_list_fail.append(x)    
+                    if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
+                        full_failure_list.append(files_present_in_checkpoints(seed_list, seed_list_fail, folder))
+        for failure in full_failure_list:
+            print failure, "\n"
+    assert full_failure_list == []
+                    
 """Test functions"""
 
 def test_validate_json_files():
@@ -221,6 +260,23 @@ def test_same_key_in_jsons():
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("prococols.json"):
                             full_failure_list.append("'protocols.json' does not match the keys in the other files")
 
+def test_key_in_opt_neuron():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), \
+                                                  same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
+                    os.chdir(os.path.join('..','..','..'))
+                    if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
+                        full_failure_list.append(folder)
+                        full_failure_list.append("The key in the .json files in 'config' is:")
+                        full_failure_list.append(same_key_in_jsons_keys[0])
+                        full_failure_list.append("The key in 'opt_neuron.py' file, line 75 is:")
+                        full_failure_list.append(key_in_opt_neuron(folder))
+
 def get_the_different_key(list1):
     unique_list = []
     repeat_list = []
@@ -234,7 +290,7 @@ def get_the_different_key(list1):
             return x
 
 repository = os.path.dirname(os.path.abspath(__file__))
-"""for folder in os.listdir(os.path.join(repository, "optimizations")):
+for folder in os.listdir(os.path.join(repository, "optimizations")):
     if (not re.match('README', folder)): #Avoid README file
         for files in os.listdir(os.path.join(repository, "optimizations", folder)):
             if files.endswith('.zip'):
@@ -242,4 +298,4 @@ repository = os.path.dirname(os.path.abspath(__file__))
                 zip_ref = zipfile.ZipFile(files, 'r')
                 zip_ref.extractall('.')
                 zip_ref.close() 
-                os.chdir(os.path.join('..','..'))"""
+                os.chdir(os.path.join('..','..'))
