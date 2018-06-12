@@ -7,8 +7,9 @@ def same_structure (check_folder):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(repository, "optimizations", folder, folder, check_folder)):
                 failure_list.append("fail")
-                failure_list.append("folder does not exist in directory:")
-                failure_list.append(folder)
+                print "\n\n", folder
+                print "\nFailed! Check: All the folders have the same structure"
+                print "    ", check_folder, "folder does not exist in directory:", folder
         return failure_list
     
 def validate_json_files(f, folder):
@@ -19,9 +20,11 @@ def validate_json_files(f, folder):
             json_data = json.load(json_file)
             return failure_list
         except ValueError as error:
-            failure_list.append(folder)
-            failure_list.append(f)
-            failure_list.append("Is an invalid json file: %s" % error)
+            failure_list.append("fail")
+            print "\n\n", folder
+            print "Failed! Check: .json files in 'config' folder are valid"
+            print "    ", f
+            print("    Is an invalid json: %s" % error)
             return failure_list
 
 def files_present_in_config(config_list, folder):
@@ -29,10 +32,12 @@ def files_present_in_config(config_list, folder):
     files_present_in_config = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
     failure_list = []
     if files_present_in_config != config_list:
-        failure_list.append (folder)
-        failure_list.append ("Files present in 'config' folder:")
+        failure_list.append ("fail")
+        print "\n\n", folder
+        print "Failed! Check: Fail!"
+        print "    Files present in 'config' folder:"
         for i in range (0,len(config_list)):
-            failure_list.append (config_list[i])
+            print "       ", config_list[i]
     return failure_list
 
 def files_present_in_model(model_list, folder):
@@ -246,8 +251,6 @@ def test_same_structure():
         full_failure_list.append(same_structure("morphology"))
     if same_structure("tools") != []:
         full_failure_list.append(same_structure("tools"))
-    for failure in full_failure_list:
-        print failure, "\n"
     assert full_failure_list == []
 
 @pytest.mark.dependency(depends=["test_same_structure"])
