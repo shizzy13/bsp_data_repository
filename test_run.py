@@ -73,10 +73,10 @@ def one_file_present_in_morphology (morphology_list, folder):
         failure_list.append ("fail")
         print "\n\n", folder
         print "Failed! Only 1 file is present in 'morphology' folder"
-        print "    Number of files present in 'morphology' folder:", name.__len__()
+        print "    Number of files present in 'morphology' folder:", morphology_list.__len__()
         print "    Files in 'morphology' folder:"
-        for i in range (0,len(name)):
-            print "       ", name[i]
+        for i in range (0,len(morphology_list)):
+            print "       ", morphology_list[i]
     return failure_list
 
 def correct_filename_in_morphology (morphology_list, morph_data, folder):
