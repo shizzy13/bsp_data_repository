@@ -1,4 +1,4 @@
-import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest
+import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency
 
 def same_structure (check_folder):
     """Check if all the folders have the same structure"""
@@ -6,7 +6,7 @@ def same_structure (check_folder):
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(repository, "optimizations", folder, folder, check_folder)):
-                failure_list.append(check_folder)
+                failure_list.append("fail")
                 failure_list.append("folder does not exist in directory:")
                 failure_list.append(folder)
         return failure_list
@@ -176,7 +176,24 @@ def files_present_in_figures(seed_list, seed_list_fail, folder):
             failure_list.append(y)
         failure_list.append("'responses' files:")
         for z in responses_list_fail:
-            failure_list.append(z)   
+            failure_list.append(z)
+
+    if not seed_list == evolution_list == objectives_list == responses_list:
+        print "\n\n", folder
+        print "Check 9: Fail!"
+        print "    'r_seed' folders:"
+        for q in seed_list_fail:
+            print "        ", q
+        print "    'evolution' files:"
+        for x in evolution_list_fail:
+            print "        ", x
+        print "    'objectives' files:"
+        for y in objectives_list_fail:
+            print "        ", y
+        print "    'responses' files:"
+        for z in responses_list_fail:
+            print "        ", z
+            
     return failure_list
 
 def same_name_files_are_copies():
@@ -212,6 +229,7 @@ def same_name_files_are_copies():
                     
 """Test functions"""
 
+@pytest.mark.dependency()
 def test_same_structure():
     full_failure_list = []
     if same_structure("checkpoints") != []:
@@ -232,7 +250,7 @@ def test_same_structure():
         print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_validate_json_files():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -254,7 +272,8 @@ def test_validate_json_files():
         print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder), validate_json_files(f, folder)
+
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files"])
 def test_files_present_in_config():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -268,7 +287,7 @@ def test_files_present_in_config():
             print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_model():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -282,7 +301,7 @@ def test_files_present_in_model():
             print failure, "\n"
     assert full_failure_list == []
     
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_tools():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -296,7 +315,7 @@ def test_files_present_in_tools():
             print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_one_file_present_in_morphology():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -308,7 +327,7 @@ def test_one_file_present_in_morphology():
                         full_failure_list.append(one_file_present_in_morphology(morphology_list, folder))
             assert full_failure_list == []
 
-#if same_structure (check_folder), validate_json_files(f, folder), one_file_present_in_morphology (morphology_list, folder)
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_one_file_present_in_morphology"])
 def test_correct_filename_in_morphology():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -325,7 +344,7 @@ def test_correct_filename_in_morphology():
             print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder), validate_json_files(f, folder), files_present_in_config(config_list, folder)
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config"])
 def test_same_key_in_jsons():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -353,7 +372,7 @@ def test_same_key_in_jsons():
                         elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("prococols.json"):
                             full_failure_list.append("'protocols.json' does not match the keys in the other files")
 
-#if same_structure (check_folder), validate_json_files(f, folder), files_present_in_config(config_list, folder), same_key_in_jsons(jjson)
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config, test_same_key_in_jsons"])
 def test_key_in_opt_neuron():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -372,7 +391,7 @@ def test_key_in_opt_neuron():
                         full_failure_list.append(key_in_opt_neuron(folder))
 
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_checkpoints():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -394,7 +413,7 @@ def test_files_present_in_checkpoints():
     assert full_failure_list == []
 
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_figures():
     full_failure_list = []
     for folder in os.listdir(os.path.join(repository, "optimizations")):
@@ -415,7 +434,7 @@ def test_files_present_in_figures():
         print failure, "\n"
     assert full_failure_list == []
 
-#if same_structure (check_folder)
+@pytest.mark.dependency(depends=["test_same_structure"])
 def test_same_name_files_are_copies():
 #    print same_name_files_are_copies(), "\n"
     assert  same_name_files_are_copies() == []
