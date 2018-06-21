@@ -6,7 +6,7 @@ def same_structure (check_folder):
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
             if not os.path.isdir(os.path.join(repository, "optimizations", folder, folder, check_folder)):
-                failure+=1
+                failure=1
                 print "\n\n", folder
                 print "\nFailed! All the folders have the same structure"
                 print "    ", check_folder, "folder does not exist in directory:", folder
@@ -20,7 +20,7 @@ def validate_json_files(f, folder):
             json_data = json.load(json_file)
             return failure
         except ValueError as error:
-            failure+=1
+            failure=1
             print "\n\n", folder
             print "Failed! All .json files in 'config' folder are valid"
             print "    ", f
@@ -32,7 +32,7 @@ def files_present_in_config(config_list, folder):
     files_present_in_config = ['features.json', 'morph.json', 'parameters.json', 'protocols.json']
     failure = 0
     if files_present_in_config != config_list:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! 'features.json', 'morph.json', 'parameters.json', 'protocols.json' files are present in 'config' folder"
         print "    Files present in 'config' folder:"
@@ -45,7 +45,7 @@ def files_present_in_model(model_list, folder):
     files_present_in_model = ['__init__.py', 'analysis.py', 'evaluator.py', 'template.py']
     failure = 0
     if files_present_in_model != model_list:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! 'analysis.py', 'evaluator.py', 'template.py', '__init__.py' files are present in 'model' folder"
         print "    Files present in 'model' folder:"
@@ -58,7 +58,7 @@ def files_present_in_tools(tools_list, folder):
     files_present_in_tools = ['get_stats.py', 'task_stats.py']
     failure = 0
     if files_present_in_tools != tools_list:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! 'get_stats.py', 'task_stats.py' files are present in 'tools' folder"
         print "    Files present in 'tools' folder:"
@@ -70,7 +70,7 @@ def one_file_present_in_morphology (morphology_list, folder):
     """Check if only 1 file is present in 'morphology' folder \n"""
     failure = 0
     if morphology_list.__len__() != 1:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! Only 1 file is present in 'morphology' folder"
         print "    Number of files present in 'morphology' folder:", morphology_list.__len__()
@@ -85,9 +85,9 @@ def correct_filename_in_morphology (morphology_list, morph_data, folder):
     same_name = 0
     for file_name in morphology_list:
         if file_name == morph_data.values()[0]:
-            same_name += 1
+            same_name = 1
     if same_name != 1:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! File in 'morphology' folder has the same name as the value of the key in 'morph.json' in 'config' folder"
         print "    Name of file in 'morphology' folder:", n
@@ -131,7 +131,7 @@ def files_present_in_checkpoints(seed_list, seed_list_fail, folder):
             pkl_list_fail.append(z)
 
     if not seed_list == hoc_list == pkl_list:
-        failure+=1  
+        failure=1  
         print "\n\n", folder  
         print "Failed! 'Checkpoints' folder has as many .hoc and .pkl files with the same count and name as the seed folders"
         print "    'r_seed' folders:"
@@ -176,7 +176,7 @@ def files_present_in_figures(seed_list, seed_list_fail, folder):
             responses_list_fail.append(z)
 
     if not seed_list == evolution_list == objectives_list == responses_list:
-        failure+=1
+        failure=1
         print "\n\n", folder
         print "Failed! 'Figures' folder has as many 'evolution, 'objectives' and 'responses' files (with proper names) as the seed folders"
         print "    'r_seed' folders:"
@@ -214,10 +214,10 @@ def same_name_files_are_copies():
             if not filecmp.cmp(os.path.join(repository, "optimizations", foldersofthekey[0], foldersofthekey[0], "mechanisms", listkeys[i]),\
                                os.path.join(repository, "optimizations", foldersofthekey[j], foldersofthekey[j], "mechanisms", listkeys[i])):
                 if print_fail_once==1:
-                    failure+=1
-                    print_fail_once+=1
+                    failure=1
+                    print_fail_once=1
                     print "\nFailed! All files with the same name in all 'mechanisms' folders are exact copies"
-                    print_fail_once+=1
+                    print_fail_once=1
                 print "    ", "File:", listkeys[i], "is not the same in \n",\
                       "    ", foldersofthekey[0],\
                       "    ", "\n     and\n",\
@@ -230,19 +230,19 @@ def same_name_files_are_copies():
 def test_same_structure():
     failures = 0
     if same_structure("checkpoints") != []:
-        failures+=1
+        failures=1
     if same_structure("config") != []:
-        failures+=1
+        failures=1
     if same_structure("figures") != []:
-        failures+=1
+        failures=1
     if same_structure("mechanisms") != []:
-        failures+=1
+        failures=1
     if same_structure("model") != []:
-        failures+=1
+        failures=1
     if same_structure("morphology") != []:
-        failures+=1
+        failures=1
     if same_structure("tools") != []:
-        failures+=1
+        failures=1
     assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -256,13 +256,13 @@ def test_validate_json_files():
                     validate_json_files_bool = validate_json_files("features.json", folder) == validate_json_files("morph.json", folder)==\
                                                validate_json_files("parameters.json", folder)==validate_json_files("protocols.json", folder)
                     if validate_json_files("features.json", folder) != []:
-                        failures+=1
+                        failures=1
                     if validate_json_files("morph.json", folder) != []:
-                        failures+=1
+                        failures=1
                     if validate_json_files("parameters.json", folder) != []:
-                        failures+=1
+                        failures=1
                     if validate_json_files("protocols.json", folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
 
 
@@ -275,7 +275,7 @@ def test_files_present_in_config():
                 if (files == folder):
                     config_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "config"))
                     if files_present_in_config(config_list, folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -287,7 +287,7 @@ def test_files_present_in_model():
                 if (files == folder):    
                     model_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "model"))
                     if files_present_in_model(model_list, folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
     
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -299,7 +299,7 @@ def test_files_present_in_tools():
                 if (files == folder):    
                     tools_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "tools"))
                     if files_present_in_tools(tools_list, folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure"])
@@ -311,7 +311,7 @@ def test_one_file_present_in_morphology():
                 if (files == folder):
                     morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
                     if one_file_present_in_morphology(morphology_list, folder) != []:
-                        failures+=1
+                        failures=1
             assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_one_file_present_in_morphology"])
@@ -326,7 +326,7 @@ def test_correct_filename_in_morphology():
                         morph_data = json.load(json_file)
                         morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
                     if correct_filename_in_morphology(morphology_list, morph_data, folder) != []:
-                        failures+=1                   
+                        failures=1                   
     assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config"])
@@ -344,7 +344,7 @@ def test_same_key_in_jsons():
                                                  same_key_in_jsons("parameters.json") == \
                                                  same_key_in_jsons("protocols.json"))
                     if same_key_in_jsons_boolean is False:
-                        failures+=1
+                        failures=1
                         print "\n\n", folder
                         print "Failed! The same key is used in all .json files in 'config' folder"
                         print "    The key '",get_the_different_key(same_key_in_jsons_keys),"' in the file:" 
@@ -370,7 +370,7 @@ def test_key_in_opt_neuron():
                                                   same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
                     os.chdir(os.path.join('..','..','..'))
                     if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
-                        failures+=1
+                        failures=1
                         print "\n\n", folder
                         print "Failed! In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'!"
                         print "    The key in the .json files in 'config' is:", same_key_in_jsons_keys[0]
@@ -393,7 +393,7 @@ def test_files_present_in_checkpoints():
                             seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                             seed_list_fail.append(x)    
                     if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
 
 
@@ -413,7 +413,7 @@ def test_files_present_in_figures():
                             seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
                             seed_list_fail.append(x)    
                     if files_present_in_figures(seed_list, seed_list_fail, folder) != []:
-                        failures+=1
+                        failures=1
     assert failures == 0
 
 @pytest.mark.dependency(depends=["test_same_structure"])
