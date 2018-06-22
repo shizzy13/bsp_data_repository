@@ -500,7 +500,7 @@ def test_neuron():
                     print "Before command4"
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "Before command5"
-                    os.system($HOME/local/nrn/bin/nrniv.exe)
+                    os.system("$HOME/local/nrn/bin/nrniv.exe")
                     print "nrn folder", os.listdir('.')
                     print os.system($HOME/local/nrn/bin/nrniv.exe)
     assert n==1
