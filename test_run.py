@@ -19,8 +19,11 @@ def get_template_and_hoc_file(folder):
 def write_test_hoc (return_values):
     """Write a test.hoc file in each 'checkpoints' folder"""
     hoc_file = return_values[0]
+    print hoc_file
     template_name = return_values[1]
+    print template_name
     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+    print "before write"
     file = open("teest.hoc","w")
     file.write("load_file('"+hoc_file+"')\n") 
     file.write("cvode_active(1)\n\n") 
@@ -28,16 +31,20 @@ def write_test_hoc (return_values):
     file.write("testcell = new "+template_name+"()\n\n")
     file.write("testcell.init()") 
     file.close()
-    return
+    print "after write"
 
 def move_files_around(folder):
     """Copy 'morphology' folder and contents from 'mechanisms' to 'checkpoints'"""
+    print "inside move files"
     from distutils.dir_util import copy_tree
+    print "inside move files2"
     os.chdir(os.path.join(repository, "optimizations", folder, folder))
     if not os.path.exists(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology")):
         os.makedirs(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
+    print "inside move files3"  
     copy_tree("morphology", os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
     copy_tree("mechanisms", "checkpoints")
+    print "inside move files4"
     return
 
 """def change_stuff_in_hoc_file(folder, return_values):
