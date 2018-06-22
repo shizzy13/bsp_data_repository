@@ -11,10 +11,8 @@ then
     mkdir -p ${SRC_DIR}
     cd ${SRC_DIR}
     echo "Downloading NEURON ..."
-	git clone --depth 1 https://github.com/neuronsimulator/nrn.git >download.log 2>&1
+	git clone -b stderr https://github.com/neuronsimulator/nrn.git
 	cd nrn
-	git pull origin stderr:stderr
-    git checkout stderr
     echo "Preparing NEURON ..."
 	./build.sh >prepare.log 2>&1
     echo "Configuring NEURON ..."
