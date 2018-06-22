@@ -483,9 +483,9 @@ def test_neuron():
         if (not re.match('README', folder)): #Avoid README file
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
-                    write_test_hoc (return_values)
+                    return_values = get_template_and_hoc_file(folder)
+                    write_test_hoc(return_values)
                     move_files_around(folder)
-                    change_stuff_in_hoc_file(folder, return_values)
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     nrnivmodl
     assert n==1
