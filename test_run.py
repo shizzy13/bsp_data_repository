@@ -489,7 +489,7 @@ def test_neuron():
                     move_files_around(folder)
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     nrnivmodl
-                    print os.listdir('.')
+                    print "Test neuron", os.listdir('.')
     assert n==1
     
 def get_the_different_key(list1):
