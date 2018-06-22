@@ -1,61 +1,4 @@
 import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency
-def get_template_and_hoc_file(folder):
-    """Get name of template in the first .hoc file in 'checkpoints' folder"""
-    hoc_files = []
-    template_name = []
-    return_values = []
-    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-    for f in os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints")):
-        if f.endswith(".hoc"):
-            hoc_files.append(f)
-    for c in open(hoc_files[0], "r"):
-        start = "begintemplate"
-        end = ""
-    template_name.append(c[c.find(start)+len(start):c.rfind(end)])
-    return_values.append(hoc_files[0])
-    return_values.append(template_name[0])
-    return return_values
-                    
-def write_test_hoc (return_values):
-    """Write a test.hoc file in each 'checkpoints' folder"""
-    hoc_file = return_values[0]
-    template_name = return_values[1]
-    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-    file = open("teest.hoc","w")
-    file.write("load_file('"+hoc_file+"')\n") 
-    file.write("cvode_active(1)\n\n") 
-    file.write("objref testcell\n") 
-    file.write("testcell = new "+template_name+"()\n\n")
-    file.write("testcell.init()") 
-    file.close()
-    return
-
-def move_files_around(folder):
-    """Copy 'morphology' folder and contents from 'mechanisms' to 'checkpoints'"""
-    from distutils.dir_util import copy_tree
-    os.chdir(os.path.join(repository, "optimizations", folder, folder))
-    if not os.path.exists(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology")):
-        os.makedirs(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
-    copy_tree("morphology", os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
-    copy_tree("mechanisms", "checkpoints")
-    return
-
-
-"""def change_stuff_in_hoc_file(folder, return_values):
-    hoc_file = return_values[0]
-    hocc_file = return_values[0]
-    asc_file = os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
-    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-    f=open(hoc_file,'r')
-    lines=f.readlines()
-    for i in range(len(lines)):
-        if lines[i].startswith('  } else') and lines[i+1].startswith("    load_morphology($s1"):
-            lines[i+1]='    load_morphology("morphology", "'+asc_file[0]+'")'
-    f=open(hoc_file,'w')
-    f.writelines(lines)
-    f.close()
-    return"""
-    
 
 def same_structure (check_folder):
     """Check if all the folders have the same structure"""
@@ -453,6 +396,7 @@ def test_files_present_in_checkpoints():
                         full_failure_list.append("fail")
     assert full_failure_list == []
 
+
 @pytest.mark.dependency(depends=["test_same_structure"])
 def test_files_present_in_figures():
     full_failure_list = []
@@ -476,20 +420,7 @@ def test_files_present_in_figures():
 def test_same_name_files_are_copies():
     assert  same_name_files_are_copies() == []
 
-@pytest.mark.dependency()
-def test_neuron():
-    n=1
-    for folder in os.listdir(os.path.join(repository, "optimizations")):
-        if (not re.match('README', folder)): #Avoid README file
-            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
-                if (files == folder):
-                    return_values = get_template_and_hoc_file(folder)
-                    write_test_hoc(return_values)
-                    move_files_around(folder)
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    nrnivmodl
-    assert n==1
-    
+
 def get_the_different_key(list1):
     unique_list = []
     repeat_list = []
