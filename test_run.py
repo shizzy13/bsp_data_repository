@@ -16,7 +16,7 @@ def get_template_and_hoc_file(folder):
     return_values.append(template_name[0])
     return return_values
                     
-def write_test_hoc(return_values):
+def write_test_hoc (return_values, folder):
     """Write a test.hoc file in each 'checkpoints' folder"""
     hoc_file = return_values[0]
     print hoc_file
@@ -291,6 +291,198 @@ def same_name_files_are_copies():
                     
 """Test functions"""
 
+@pytest.mark.dependency()
+def test_same_structure():
+    full_failure_list = []
+    if same_structure("checkpoints") != []:
+        full_failure_list.append("fail")
+    if same_structure("config") != []:
+        full_failure_list.append("fail")
+    if same_structure("figures") != []:
+        full_failure_list.append("fail")
+    if same_structure("mechanisms") != []:
+        full_failure_list.append("fail")
+    if same_structure("model") != []:
+        full_failure_list.append("fail")
+    if same_structure("morphology") != []:
+        full_failure_list.append("fail")
+    if same_structure("tools") != []:
+        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_validate_json_files():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    validate_json_files_bool = validate_json_files("features.json", folder) == validate_json_files("morph.json", folder)==\
+                                               validate_json_files("parameters.json", folder)==validate_json_files("protocols.json", folder)
+                    if validate_json_files("features.json", folder) != []:
+                        full_failure_list.append("fail")
+                    if validate_json_files("morph.json", folder) != []:
+                        full_failure_list.append("fail")
+                    if validate_json_files("parameters.json", folder) != []:
+                        full_failure_list.append("fail")
+                    if validate_json_files("protocols.json", folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files"])
+def test_files_present_in_config():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    config_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    if files_present_in_config(config_list, folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_files_present_in_model():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):    
+                    model_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "model"))
+                    if files_present_in_model(model_list, folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+    
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_files_present_in_tools():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):    
+                    tools_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "tools"))
+                    if files_present_in_tools(tools_list, folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_one_file_present_in_morphology():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
+                    if one_file_present_in_morphology(morphology_list, folder) != []:
+                        full_failure_list.append("fail")
+            assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_one_file_present_in_morphology"])
+def test_correct_filename_in_morphology():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    with open("morph.json") as json_file:
+                        morph_data = json.load(json_file)
+                        morphology_list = os.listdir(os.path.join(repository, "optimizations", folder, folder, "morphology"))
+                    if correct_filename_in_morphology(morphology_list, morph_data, folder) != []:
+                        full_failure_list.append("fail")                   
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config"])
+def test_same_key_in_jsons():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), \
+                                                  same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
+                    same_key_in_jsons_boolean = (same_key_in_jsons("morph.json") == \
+                                                 same_key_in_jsons("features.json") == \
+                                                 same_key_in_jsons("parameters.json") == \
+                                                 same_key_in_jsons("protocols.json"))
+                    if same_key_in_jsons_boolean is False:
+                        full_failure_list.append("fail")
+                        print "\n\n", folder
+                        print "Failed! The same key is used in all .json files in 'config' folder"
+                        print "    The key '",get_the_different_key(same_key_in_jsons_keys),"' in the file:" 
+                        if get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("morph.json"):
+                            print "    'morph.json' does not match the keys in the other files"
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("features.json"):
+                            print "   'features.json' does not match the keys in the other files"
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("parameters.json"):
+                             print "    'parameters.json' does not match the keys in the other files"
+                        elif get_the_different_key(same_key_in_jsons_keys) == same_key_in_jsons("protocols.json"):
+                            print "    'protocols.json' does not match the keys in the other files"
+    assert full_failure_list == [] 
+
+@pytest.mark.dependency(depends=["test_same_structure, test_validate_json_files, test_files_present_in_config, test_same_key_in_jsons"])
+def test_key_in_opt_neuron():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "config"))
+                    same_key_in_jsons_keys = [same_key_in_jsons("morph.json"), same_key_in_jsons("features.json"), \
+                                                  same_key_in_jsons("parameters.json"),same_key_in_jsons("protocols.json")]
+                    os.chdir(os.path.join('..','..','..'))
+                    if key_in_opt_neuron(folder) != same_key_in_jsons_keys[0]:
+                        full_failure_list.append("fail")
+                        print "\n\n", folder
+                        print "Failed! In 'opt_neuron.py' file, line 75 contains the same key as the one in the .json files in 'config'!"
+                        print "    The key in the .json files in 'config' is:", same_key_in_jsons_keys[0]
+                        print "    The key in 'opt_neuron.py' file, line 75 is:", key_in_opt_neuron()
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_files_present_in_checkpoints():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    seed_list = []
+                    seed_list_fail = []
+                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
+                        if (x.startswith('r_seed')):
+                            start = "r_"
+                            end = "_0"
+                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                            seed_list_fail.append(x)    
+                    if files_present_in_checkpoints(seed_list, seed_list_fail, folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_files_present_in_figures():
+    full_failure_list = []
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    seed_list = []
+                    seed_list_fail = []
+                    for x in os.listdir(os.path.join(repository, "optimizations", folder, folder)):
+                        if (x.startswith('r_seed')):
+                            start = "r_"
+                            end = "_0"
+                            seed_list.append(x[x.find(start)+len(start):x.rfind(end)])
+                            seed_list_fail.append(x)    
+                    if files_present_in_figures(seed_list, seed_list_fail, folder) != []:
+                        full_failure_list.append("fail")
+    assert full_failure_list == []
+
+@pytest.mark.dependency(depends=["test_same_structure"])
+def test_same_name_files_are_copies():
+    assert  same_name_files_are_copies() == []
 
 @pytest.mark.dependency()
 def test_neuron():
@@ -302,7 +494,7 @@ def test_neuron():
                     print "Before command1"
                     return_values = get_template_and_hoc_file(folder)
                     print "Before command2"
-                    write_test_hoc(return_values)
+                    write_test_hoc(return_values, folder)
                     print "Before command3"
                     move_files_around(folder)
                     print "Before command4"
