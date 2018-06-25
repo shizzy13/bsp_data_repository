@@ -11,3 +11,4 @@ before_script:
     - export PYTHONPATH=$PYTHONPATH:${NRN_INSTALL_DIR}/lib/python
 script: 
     - pytest -s -q --tb=no
+    - make test
