@@ -24,7 +24,7 @@ def write_test_hoc (return_values, folder):
     print template_name
     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
     print "before write"
-    file = open("teest.hoc","w")
+    file = open("test.hoc","w")
     file.write("load_file('"+hoc_file+"')\n") 
     file.write("cvode_active(1)\n\n") 
     file.write("objref testcell\n") 
@@ -507,6 +507,9 @@ def test_neuron():
                     import neuron
                     print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after import neuron x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    os.system(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "test.hoc"))
+                    print print "after test.hoc checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    print "after test.hoc x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
 
 
     assert n==1
