@@ -10,4 +10,4 @@ before_script:
     - export PATH=$PATH:${NRN_INSTALL_DIR}/x86_64/bin
     - export PYTHONPATH=$PYTHONPATH:${NRN_INSTALL_DIR}/lib/python
 script: 
-    - make test
+    - make
