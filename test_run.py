@@ -498,9 +498,9 @@ def test_neuron():
                     print "Before command3"
                     move_files_around(folder)
                     print "Before command4"
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder))
                     print "Before command5"
-                    sh.nrnivmodl('.')
+                    sh.nrnivmodl('checkpoints')
                     print "nrn folder", os.listdir('.')
 
     assert n==1
