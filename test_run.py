@@ -22,7 +22,7 @@ def write_test_hoc (return_values, folder):
     print hoc_file
     template_name = return_values[1]
     print template_name
-    os.chdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
     print "before write"
     file = open("test.hoc","w")
     file.write("load_file('"+hoc_file+"')\n") 
@@ -47,7 +47,7 @@ def move_files_around(folder):
     print "inside move files4"
     return
 
-"""def change_stuff_in_hoc_file(folder, return_values):
+def change_stuff_in_hoc_file(folder, return_values):
     """'Change line 47 value from $s1 to "morphology", remove comments from file'"""
     hoc_file = return_values[0]
     asc_file = os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
@@ -63,7 +63,7 @@ def move_files_around(folder):
     f=open(hoc_file,'w')
     f.writelines(lines)
     f.close()
-    return"""
+    return
     
 def same_structure (check_folder):
     """Check if all the folders have the same structure"""
@@ -494,21 +494,24 @@ def test_neuron():
                     print "Before command1"
                     return_values = get_template_and_hoc_file(folder)
                     print "Before command2"
-                    
+                    write_test_hoc(return_values, folder)
                     print "Before command3"
                     move_files_around(folder)
                     print "Before command4"
                     os.chdir(os.path.join(repository, "optimizations", folder, folder))
                     print "Before command5"
                     sh.nrnivmodl('checkpoints')
+                    change_stuff_in_hoc_file(folder, return_values)
                     print "after command current folder", os.listdir('.')
                     print "after command checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     import neuron
-                    write_test_hoc(return_values, folder)
+                    from neuron import h
+                    h.load_file("test.hoc")
+                
                     print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after import neuron x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
-                    os.systesm(os.path.join(repository, "optimizations", folder, folder, "x86_64", "test.hoc"))
+   
 
     assert n==1
     
