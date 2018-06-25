@@ -501,7 +501,13 @@ def test_neuron():
                     os.chdir(os.path.join(repository, "optimizations", folder, folder))
                     print "Before command5"
                     sh.nrnivmodl('checkpoints')
-                    print "nrn folder", os.listdir('.')
+                    print "after command current folder", os.listdir('.')
+                    print "after command checkpoints:", os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    print "after command current x86_64:", os.chdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    import neuron
+                    print "after import neuron checkpoints:", os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    print "after import neuron x86_64:", os.chdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+
 
     assert n==1
     
