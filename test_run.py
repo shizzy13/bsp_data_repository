@@ -22,7 +22,7 @@ def write_test_hoc (return_values, folder):
     print hoc_file
     template_name = return_values[1]
     print template_name
-    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+    os.chdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
     print "before write"
     file = open("test.hoc","w")
     file.write("load_file('"+hoc_file+"')\n") 
@@ -494,7 +494,7 @@ def test_neuron():
                     print "Before command1"
                     return_values = get_template_and_hoc_file(folder)
                     print "Before command2"
-                    write_test_hoc(return_values, folder)
+                    
                     print "Before command3"
                     move_files_around(folder)
                     print "Before command4"
@@ -505,12 +505,10 @@ def test_neuron():
                     print "after command checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     import neuron
+                    write_test_hoc(return_values, folder)
                     print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after import neuron x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
-                    os.system(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "test.hoc"))
-                    print print "after test.hoc checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    print "after test.hoc x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
-
+                    os.system(os.path.join("HOME","local","nrn","bin","nrniv.exe"))
 
     assert n==1
     
