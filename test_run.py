@@ -508,7 +508,7 @@ def test_neuron():
                     write_test_hoc(return_values, folder)
                     print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after import neuron x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
-                    os.system(os.path.join("HOME","local","nrn","bin","nrniv.exe"))
+                    os.system(os.path.join(repository, "optimizations", folder, folder, "x86_64", "test.hoc")
 
     assert n==1
     
