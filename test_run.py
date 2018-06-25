@@ -507,6 +507,7 @@ def test_neuron():
                     print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     import neuron
                     from neuron import h
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     h.load_file("test.hoc")
                 
                     print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
