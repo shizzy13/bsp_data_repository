@@ -506,13 +506,11 @@ def test_neuron():
                     print "after command checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     import neuron
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     from neuron import h
-                    
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     h.load_file("test.hoc")
-                
-                    print "after import neuron checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    print "after import neuron x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    print "after load file checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    print "after load file x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
    
 
     assert n==1
