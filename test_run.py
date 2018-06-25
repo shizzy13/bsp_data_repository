@@ -1,4 +1,4 @@
-import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency
+import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency, sh
 def get_template_and_hoc_file(folder):
     """Get name of template in the first .hoc file in 'checkpoints' folder"""
     hoc_files = []
@@ -500,9 +500,9 @@ def test_neuron():
                     print "Before command4"
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "Before command5"
-                    os.system(os.path.join("HOME","local","nrn","bin","nrnivmodl.in"))
+                    sh.nrnivmodl('.')
                     print "nrn folder", os.listdir('.')
-                    os.system(os.path.join("HOME","local","nrn","bin","nrnivmodl.in"))
+
     assert n==1
     
 def get_the_different_key(list1):
