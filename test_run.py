@@ -494,9 +494,9 @@ def test_neuron():
                     print "current folder", os.listdir('.')
                     print "checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     import neuron
                     from neuron import h
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     #h.load_file("test.hoc")
                     print "yes"
    
