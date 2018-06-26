@@ -488,9 +488,10 @@ def test_neuron():
                     write_test_hoc(return_values, folder)
                     move_files_around(folder)
                     os.chdir(os.path.join(repository, "optimizations", folder, folder))
-                    print "Before command5"
+                    print "Before sh.nrnivmodl"
                     sh.nrnivmodl('checkpoints')
                     change_stuff_in_hoc_file(folder, return_values)
+                    print "current folder", os.listdir('.')
                     print "checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
