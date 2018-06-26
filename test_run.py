@@ -491,9 +491,8 @@ def test_neuron():
                     print "Before command5"
                     sh.nrnivmodl('checkpoints')
                     change_stuff_in_hoc_file(folder, return_values)
-                    print "after command current folder", os.listdir('.')
-                    print "after command checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    print "checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+                    print "x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
                     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     import neuron
                     from neuron import h
