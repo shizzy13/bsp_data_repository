@@ -491,13 +491,10 @@ def test_neuron():
         if (not re.match('README', folder)): #Avoid README file
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
-                    print "Before command1"
+                    print folder
                     return_values = get_template_and_hoc_file(folder)
-                    print "Before command2"
                     write_test_hoc(return_values, folder)
-                    print "Before command3"
                     move_files_around(folder)
-                    print "Before command4"
                     os.chdir(os.path.join(repository, "optimizations", folder, folder))
                     print "Before command5"
                     sh.nrnivmodl('checkpoints')
@@ -505,12 +502,11 @@ def test_neuron():
                     print "after command current folder", os.listdir('.')
                     print "after command checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     print "after command current x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     import neuron
                     from neuron import h
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
                     h.load_file("test.hoc")
-                    print "after load file checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    print "after load file x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
+                    print "yes"
    
 
     assert n==1
