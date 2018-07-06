@@ -11,7 +11,7 @@ then
     mkdir -p ${SRC_DIR}
     cd ${SRC_DIR}
     echo "Downloading NEURON ..."
-	git clone https://github.com/neuronsimulator/nrn.git
+	git clone -b master https://github.com/neuronsimulator/nrn.git
 	cd nrn
     echo "Preparing NEURON ..."
 	./build.sh >prepare.log 2>&1
