@@ -22,7 +22,7 @@ def write_test_hoc (return_values, folder):
     template_name = return_values[1]
     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
     file = open("test.hoc","w")
-    file.write("load_file('"+hoc_file+"')\n") 
+    file.write("load_file(\""+hoc_file+"\")\n") 
     file.write("cvode_active(1)\n\n") 
     file.write("objref testcell\n") 
     file.write("testcell = new "+template_name+"()\n\n")
@@ -55,6 +55,7 @@ def change_stuff_in_hoc_file(folder, return_values):
     f=open(hoc_file,'w')
     f.writelines(lines)
     f.close()
+    os.chdir(os.path.join(repository, "optimizations", folder, folder))
     return
     
 def same_structure (check_folder):
@@ -481,6 +482,11 @@ def test_neuron():
     n=1
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
+            os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
+            for f in os.listdir('.'):
+                if f.endswith("test.hoc"):
+                    os.remove(f)
+            os.chdir('../../../..')
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
                     print folder
@@ -499,8 +505,6 @@ def test_neuron():
                     from neuron import h
                     h.load_file("test.hoc")
                     print "yes"
-   
-
     assert n==1
     
 def get_the_different_key(list1):
