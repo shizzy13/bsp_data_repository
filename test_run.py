@@ -512,7 +512,6 @@ def test_neuron():
                     os.chdir(os.path.join(repository, "optimizations", folder, folder))
                     copy_tree("mechanisms",os.path.join(repository,"mechall"))
                     os.chdir(os.path.join(repository))
-    print(os.getcwd())
     sh.nrnivmodl('mechall')
     #print "x86_64:", os.listdir(os.path.join(repository, "x86_64"))
     import neuron
