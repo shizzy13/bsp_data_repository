@@ -544,10 +544,10 @@ def test_neuron():
                     varout = mystdout.getvalue()
                     varerr = mystderr.getvalue()
                     if len(varout.splitlines())==2:
-                        #print varerr.splitlines()
+                        print "varerr.splitlines()", varerr.splitlines()
                         print "error ", varerr.splitlines()[0]
-                    #else:
-                    #    print varout.splitlines()
+                    else:
+                        print "varout.splitlines()", varout.splitlines()
                     valtemplatenr=valtemplatenr+1
     assert n==1
     
