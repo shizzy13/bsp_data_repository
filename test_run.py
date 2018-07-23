@@ -1,5 +1,7 @@
-import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency, sh
-def get_template_and_hoc_file(folder):
+import os, sys, re, json, zipfile, filecmp, getopt, os.path, pytest, pytest_dependency, sh, shutil
+from shutil import copy2
+from cStringIO import StringIO
+def get_template_and_hoc_file(folder, valtemplate):
     """Get name of template in the first .hoc file in 'checkpoints' folder"""
     hoc_files = []
     template_name = []
@@ -9,25 +11,34 @@ def get_template_and_hoc_file(folder):
         if f.endswith(".hoc"):
             hoc_files.append(f)
     for c in open(hoc_files[0], "r"):
-        start = "begintemplate"
-        end = ""
-    template_name.append(c[c.find(start)+len(start):c.rfind(end)])
-    return_values.append(hoc_files[0])
-    return_values.append(template_name[0])
+        if c.startswith("begintemplate"):
+            linetemplate=c
+    template_name.append(linetemplate[linetemplate.find("begintemplate")+len("begintemplate")+1:len(linetemplate)-1])
+    fname, extension = os.path.splitext(hoc_files[0])
+    hoc_file2 = fname + "_copy" + extension
+    copy2(hoc_files[0], hoc_file2)
+    return_values.append(hoc_file2)
+    template_name2=template_name[0]+'_'+str(valtemplate)
+    return_values.append(template_name2)
+    os.chdir(os.path.join(repository, "optimizations", folder, folder))
     return return_values
                     
-def write_test_hoc (return_values, folder):
+def write_test_hoc (return_values, folder, valtemplate):
     """Write a test.hoc file in each 'checkpoints' folder"""
     hoc_file = return_values[0]
+    #print(hoc_file)
     template_name = return_values[1]
+    #print(template_name)
     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
     file = open("test.hoc","w")
-    file.write("load_file(\""+hoc_file+"\")\n") 
+    file.write("load_file(1,\""+hoc_file+"\")\n") 
     file.write("cvode_active(1)\n\n") 
-    file.write("objref testcell\n") 
-    file.write("testcell = new "+template_name+"()\n\n")
-    file.write("testcell.init()") 
+    file.write("objref testcell"+str(valtemplate)+"\n") 
+    file.write("testcell"+str(valtemplate)+" = new "+template_name+"()\n")
+    file.write("testcell"+str(valtemplate)+".init()\n") 
     file.close()
+    os.chdir(os.path.join(repository, "optimizations", folder, folder))
+    return
 
 def move_files_around(folder):
     """Copy 'morphology' folder and contents from 'mechanisms' to 'checkpoints'"""
@@ -43,15 +54,23 @@ def change_stuff_in_hoc_file(folder, return_values):
     """'Change line 47 value from $s1 to "morphology", remove comments from file'"""
     hoc_file = return_values[0]
     asc_file = os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints", "morphology"))
+    for i in range(len(asc_file)):
+        fname, extension = os.path.splitext(asc_file[i])
+        if extension==".asc" or extension==".swc":
+            morphname=asc_file[i]
     os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
     f=open(hoc_file,'r')
     lines=f.readlines()
     for i in range(len(lines)):
+        if lines[i].startswith("begintemplate"):
+            lines[i]="begintemplate "+return_values[1]+"\n"
         if lines[i].startswith('  } else') and lines[i+1].startswith("    load_morphology($s1"):
-            lines[i+1]='    load_morphology("morphology", "'+asc_file[0]+'")'
+            lines[i+1]='    load_morphology("morphology", "'+morphname+'")'
         if lines[i].startswith('//'):
             line_to_uncomment = lines[i]
             lines[i]=line_to_uncomment[2:]
+        if lines[i].startswith("endtemplate"):
+            lines[i]="endtemplate "+return_values[1]+"\n"
     f=open(hoc_file,'w')
     f.writelines(lines)
     f.close()
@@ -480,6 +499,26 @@ def test_same_name_files_are_copies():
 @pytest.mark.dependency()
 def test_neuron():
     n=1
+    if os.path.isdir("mechall")==True:
+        shutil.rmtree("mechall")
+        shutil.rmtree("x86_64")
+    else:
+        os.mkdir("mechall")
+    from distutils.dir_util import copy_tree
+    for folder in os.listdir(os.path.join(repository, "optimizations")):
+        if (not re.match('README', folder)): #Avoid README file
+            for files in os.listdir(os.path.join(repository, "optimizations", folder)):
+                if (files == folder):
+                    os.chdir(os.path.join(repository, "optimizations", folder, folder))
+                    copy_tree("mechanisms",os.path.join(repository,"mechall"))
+                    os.chdir(os.path.join(repository))
+    print(os.getcwd())
+    print "Bef0re sh.nrnivmodl"
+    sh.nrnivmodl('mechall')
+    print "x86_64:", os.listdir(os.path.join(repository, "x86_64"))
+    import neuron
+    from neuron import h
+    valtemplatenr=1         
     for folder in os.listdir(os.path.join(repository, "optimizations")):
         if (not re.match('README', folder)): #Avoid README file
             os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
@@ -490,21 +529,26 @@ def test_neuron():
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
                     print folder
-                    return_values = get_template_and_hoc_file(folder)
-                    write_test_hoc(return_values, folder)
+                    return_values = get_template_and_hoc_file(folder, valtemplatenr)
                     move_files_around(folder)
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder))
-                    print "Bef0re sh.nrnivmodl"
-                    sh.nrnivmodl('checkpoints')
                     change_stuff_in_hoc_file(folder, return_values)
-                    print "current folder", os.listdir('.')
-                    print "checkpoints:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    print "x86_64:", os.listdir(os.path.join(repository, "optimizations", folder, folder, "x86_64"))
-                    import neuron
-                    from neuron import h
-                    os.chdir(os.path.join(repository, "optimizations", folder, folder, "checkpoints"))
-                    h.load_file("test.hoc")
-                    print "yes"
+                    write_test_hoc(return_values, folder, valtemplatenr)
+                    os.chdir("checkpoints")
+                    old_stdout = sys.stdout
+                    sys.stdout = mystdout = StringIO()
+                    old_stderr = sys.stderr
+                    sys.stderr = mystderr = StringIO()
+                    status=h.load_file(1,"test.hoc")
+                    sys.stdout = old_stdout
+                    sys.stderr = old_stderr
+                    varout = mystdout.getvalue()
+                    varerr = mystderr.getvalue()
+                    if len(varout.splitlines())==2:
+                        #print varerr.splitlines()
+                        print "error ", varerr.splitlines()[0]
+                    #else:
+                    #    print varout.splitlines()
+                    valtemplatenr=valtemplatenr+1
     assert n==1
     
 def get_the_different_key(list1):
