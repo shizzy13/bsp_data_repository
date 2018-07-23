@@ -513,9 +513,8 @@ def test_neuron():
                     copy_tree("mechanisms",os.path.join(repository,"mechall"))
                     os.chdir(os.path.join(repository))
     print(os.getcwd())
-    print "Bef0re sh.nrnivmodl"
     sh.nrnivmodl('mechall')
-    print "x86_64:", os.listdir(os.path.join(repository, "x86_64"))
+    #print "x86_64:", os.listdir(os.path.join(repository, "x86_64"))
     import neuron
     from neuron import h
     valtemplatenr=1         
@@ -528,7 +527,6 @@ def test_neuron():
             os.chdir('../../../..')
             for files in os.listdir(os.path.join(repository, "optimizations", folder)):
                 if (files == folder):
-                    print folder
                     return_values = get_template_and_hoc_file(folder, valtemplatenr)
                     move_files_around(folder)
                     change_stuff_in_hoc_file(folder, return_values)
@@ -544,10 +542,10 @@ def test_neuron():
                     varout = mystdout.getvalue()
                     varerr = mystderr.getvalue()
                     if len(varout.splitlines())==2:
-                        print "varerr.splitlines()", varerr.splitlines()
-                        print "error ", varerr.splitlines()[0]
-                    else:
-                        print "varout.splitlines()", varout.splitlines()
+                        n++
+                        print "\n", folder
+                        print "Failed! Neuron error: "
+                        print varerr.splitlines()[0]
                     valtemplatenr=valtemplatenr+1
     assert n==1
     
