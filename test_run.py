@@ -542,7 +542,7 @@ def test_neuron():
                     varerr = mystderr.getvalue()
                     if len(varout.splitlines())==2:
                         n+=1
-                        print "\n", folder
+                        print "\n\n", folder
                         print "Failed! Neuron error: "
                         print varerr.splitlines()[0]
                     valtemplatenr=valtemplatenr+1
